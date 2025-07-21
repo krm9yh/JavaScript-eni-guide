@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: CH3_14.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 19/7/2025
+OBJET: Calcul (et affichage) de la surface de deux cercles de rayons prédéterminés (5.5 mètres et 3.5 mètres par exemple) ainsi que de la différence entre ces deux surfaces
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html;
+         charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>CH3_14</title>
+         <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .result {
+            background-color: #7567b8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+     </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+        <!-- Titre du traitement -->
+         <h1>Editions ENI - JavaScript - Exercice CH3_14</h1>
+
+        <!-- Début script JavaScript -->
+        <script>
+            /* Affichage du nom du script */
+            alert ("Exercice CH3_14");
+
+            /* Déclaration de variables locales */
+            /*
+            i       : Compteur de boucle
+            nbPairs : Cumul du nombre de nombres pairs
+            tableau : tableau des nombres
+            */
+            var i, nb_pairs;
+            var tableau = new Array;
+             
+            /* Initialisations */
+            nbPairs = 0;
+            for (i=1; i<=5; i++)
+            {
+                tableau[i] = parseInt(prompt("tableau[" + i +"] : "));
+            }
+
+            /* Détermination du nombre pairs dans le tableau */
+            for (i=1; i<=5; i++)
+            {
+                if (tableau[i]%2 == 0)
+                {
+                    nbPairs = nbPairs + 1;
+                }
+            }
+
+            /* Affichage des résultats */
+            document.write('<div class="result">');
+            document.write("Le tableau contient <strong>" + nbPairs + "</strong> nombres pairs");
+            document.write('</div>');
+
+        </script>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source: '+window.location">Code source</a>
+        </center>
+
+    </body>
+    
+ </html>

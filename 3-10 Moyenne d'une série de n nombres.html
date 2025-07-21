@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: CH3_10.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 19/7/2025
+OBJET: Calcul (et affichage) de la surface de deux cercles de rayons prédéterminés (5.5 mètres et 3.5 mètres par exemple) ainsi que de la différence entre ces deux surfaces
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html;
+         charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>CH3_10</title>
+     </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+        <!-- Titre du traitement -->
+         <h1>Editions ENI - JavaScript - Exercice CH3_10</h1>
+
+        <!-- Début script JavaScript -->
+        <script>
+            /* Affichage du nom du script */
+            alert ("Exercice CH3_10");
+
+            /* Déclaration de variables locales */
+            var nblu, cpt, somme, moyenne;
+             
+            /* Initialisation des variables */
+            cpt = 0;
+            somme = 0.0;
+
+            /* Boucle de traitement */
+            while (nblu != 0) {
+                nblu = parseFloat(prompt("Nombre (0 pour finir) : "));
+                somme = somme + parseFloat(nblu);
+                cpt = cpt + 1;
+                // console.log(somme);
+            }
+
+            /* Affichage des résultats */
+            if (cpt == 1)
+            {
+                document.write("Aucun nombre n'a été saisi");
+            }
+            else
+            {
+                moyenne = somme / (cpt-1);
+                document.write("Moyenne : " + moyenne);
+            }
+
+        </script>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source: '+window.location">Code source</a>
+        </center>
+
+    </body>
+    
+ </html>

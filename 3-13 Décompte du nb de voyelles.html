@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: CH3_13.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 19/7/2025
+OBJET: Calcul (et affichage) de la surface de deux cercles de rayons prédéterminés (5.5 mètres et 3.5 mètres par exemple) ainsi que de la différence entre ces deux surfaces
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html;
+         charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>CH3_13</title>
+     </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+        <!-- Titre du traitement -->
+         <h1>Editions ENI - JavaScript - Exercice CH3_13</h1>
+
+        <!-- Début script JavaScript -->
+        <script>
+            /* Affichage du nom du script */
+            alert ("Exercice CH3_13");
+
+            /* Déclaration des variables locales */
+            var mot, nb_voyelles, compteur;
+
+            /* Saisie du mot */
+            mot = prompt("Mot :");
+            nb_voyelles = 0
+             
+            /* Conversion en majuscules (pour éviter de faire 12 tests) */
+            mot = mot.toUpperCase();
+
+            /* Détermination du nombre des voyelles */
+            for (compteur = 0; compteur <= mot.length; compteur++)
+            {
+                switch (mot.charAt(compteur))
+                {
+                    case"A":
+                        nb_voyelles = nb_voyelles + 1;
+                        break;
+                    case"E":
+                        nb_voyelles = nb_voyelles + 1;
+                        break;
+                    case"I":
+                        nb_voyelles = nb_voyelles + 1;
+                        break;
+                    case"O":
+                        nb_voyelles = nb_voyelles + 1;
+                        break;
+                    case"U":
+                        nb_voyelles = nb_voyelles + 1;
+                        break;
+                    case"Y":
+                        nb_voyelles = nb_voyelles + 1;
+                        break;
+                }
+            }
+
+            /* Affichage des résultats */
+            document.write(mot, " contient " + nb_voyelles + " voyelles");
+            document.write("<br/>" + nb_voyelles + " " + compteur);
+
+        </script>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source: '+window.location">Code source</a>
+        </center>
+
+    </body>
+    
+ </html>
