@@ -60,7 +60,7 @@ OBJET: Calcul (et affichage) de la surface de deux cercles de rayons prédéterm
             /* Initialisation du tableau tb (3 lignes * 4 colonnes) par une saisie clavier */
             for (numLigne = 1; numLigne <= 3; numLigne++) {
                 for (numColonne = 1; numColonne <= 4; numColonne++) {
-                    valeur = parseInt(prompt("tableau[" + numLigne + "] [" + numColonne + "] = "));
+                    valeur = parseInt(prompt("tableau[" + numLigne + "][" + numColonne + "] = "));
                     tb[numLigne][numColonne] = valeur;
                 }
             }
@@ -79,7 +79,7 @@ OBJET: Calcul (et affichage) de la surface de deux cercles de rayons prédéterm
             for (numLigne=1; numLigne<=3; numLigne++) {
                 for (numColonne=1; numColonne<=4; numColonne++) {
                     /* Totalisation en ligne n°4 */
-                    tb[4][numColonne] + tb[numLigne][numColonne];
+                    tb[4][numColonne] = tb[4][numColonne] + tb[numLigne][numColonne];
                     /* Totalisation en colonne n°5 */
                     tb[numLigne][5] = tb[numLigne][5] + tb[numLigne][numColonne];
                     /* Totalisation générale en ligne n°4-colonne n°5 */

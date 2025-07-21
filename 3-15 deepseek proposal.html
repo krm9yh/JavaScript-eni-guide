@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercice CH3_15 - Tableau 2D avec totaux</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .total {
+            background-color: #e6f7ff;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #fffacd;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /* Affichage du nom du script */
+        alert("Exercice CH3_15 - Tableau 2D avec totaux");
+
+        /* =================== */
+        /* INITIALISATION      */
+        /* =================== */
+        
+        // Création d'un tableau avec 5 lignes (indices 0-4)
+        var tb = new Array(5); 
+        
+        // Initialisation des lignes (indices 1-4 seront utilisés)
+        for (var numLigne = 1; numLigne < tb.length; numLigne++) {
+            // Création de 6 colonnes par ligne (indices 0-5)
+            tb[numLigne] = new Array(6); 
+        }
+
+        /* =================== */
+        /* SAISIE DES DONNEES   */
+        /* =================== */
+        
+        // Remplissage des 3 premières lignes et 4 premières colonnes
+        for (numLigne = 1; numLigne <= 3; numLigne++) {
+            for (numColonne = 1; numColonne <= 4; numColonne++) {
+                var valeur;
+                // Validation de l'entrée
+                while (true) {
+                    valeur = parseInt(prompt(`Valeur pour [Ligne ${numLigne}][Colonne ${numColonne}] :`));
+                    if (!isNaN(valeur)) break;
+                    alert("Veuillez entrer un nombre valide!");
+                }
+                tb[numLigne][numColonne] = valeur;
+            }
+        }
+
+        /* =================== */
+        /* INITIALISATION TOTAUX */
+        /* =================== */
+        
+        // Initialisation des totaux de ligne (ligne 4)
+        for (numColonne = 1; numColonne <= 5; numColonne++) {
+            tb[4][numColonne] = 0;
+        }
+        
+        // Initialisation des totaux de colonne (colonne 5)
+        for (numLigne = 1; numLigne <= 4; numLigne++) {
+            tb[numLigne][5] = 0;
+        }
+
+        /* =================== */
+        /* CALCUL DES TOTAUX    */
+        /* =================== */
+        
+        for (numLigne = 1; numLigne <= 3; numLigne++) {
+            for (numColonne = 1; numColonne <= 4; numColonne++) {
+                // Total par colonne (stocké en ligne 4)
+                tb[4][numColonne] += tb[numLigne][numColonne];
+                
+                // Total par ligne (stocké en colonne 5)
+                tb[numLigne][5] += tb[numLigne][numColonne];
+                
+                // Total général (stocké en tb[4][5])
+                tb[4][5] += tb[numLigne][numColonne];
+            }
+        }
+
+        /* =================== */
+        /* AFFICHAGE DU TABLEAU */
+        /* =================== */
+        
+        document.write('<h2>Résultats du tableau</h2>');
+        document.write('<table>');
+        
+        // En-têtes des colonnes
+        document.write('<tr><th></th>');
+        for (numColonne = 1; numColonne <= 5; numColonne++) {
+            document.write(`<th>Col ${numColonne}</th>`);
+        }
+        document.write('</tr>');
+        
+        // Lignes de données
+        for (numLigne = 1; numLigne <= 4; numLigne++) {
+            document.write('<tr>');
+            document.write(`<th>${numLigne === 4 ? 'Total' : 'Ligne ' + numLigne}</th>`);
+            
+            for (numColonne = 1; numColonne <= 5; numColonne++) {
+                const isTotalCell = (numLigne === 4 || numColonne === 5);
+                const cellClass = isTotalCell ? 'total' : (numLigne <= 3 && numColonne <= 4) ? '' : 'highlight';
+                document.write(`<td class="${cellClass}">${tb[numLigne][numColonne] || ''}</td>`);
+            }
+            document.write('</tr>');
+        }
+        
+        document.write('</table>');
+        
+        // Affichage du total général avec explication
+        document.write('<div style="margin-top:20px; padding:10px; background-color:#f8f9fa; border-radius:5px;">');
+        document.write('<strong>Total général en tb[4][5] = ' + tb[4][5] + '</strong><br>');
+        document.write('Ce total représente la somme de toutes les valeurs du tableau.');
+        document.write('</div>');
+    </script>
+</body>
+</html>
