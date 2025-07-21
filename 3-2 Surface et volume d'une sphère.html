@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: CH3_3.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 19/7/2025
+OBJET: Calcuel (et affichage) de la surface de deux cercles de rayons prédéterminés (5.5 mètres et 3.5 mètres par exemple) ainsi que de la différence entre ces deux surfaces
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html;
+         charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>CH3_3</title>
+     </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+        <!-- Titre du traitement -->
+         <h1>Editions ENI - JavaScript - Exercice CH3_6</h1>
+
+        <!-- Début script JavaScript -->
+        <script>
+            /* Affichage du nom du script */
+            alert ("Exercice CH3_3");
+
+            /* Déclaration de variables locales */
+            var pi, rayon, surface, volume;
+             
+            /* Initialisation des variables */
+            pi = 3.14;
+            rayon = prompt("Rayon de la sphère :");
+
+            /* Calculs */
+            surface = 4 * pi * rayon * rayon;
+            volume = surface * rayon / 3;
+
+            /* Affichage des résultats */
+            document.write("Rayon de la sphère : " + rayon + "<br />");
+            document.write("Surface : " + surface + "<br />Volume " + volume);
+
+        </script>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location=
+            'view-source: '+window.location">
+                    Code source
+        </a>
+        </center>
+
+    </body>
+    
+ </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: CH3_6.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 19/7/2025
+OBJET: Calcuel (et affichage) de la surface de deux cercles de rayons prédéterminés (5.5 mètres et 3.5 mètres par exemple) ainsi que de la différence entre ces deux surfaces
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html;
+         charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>CH3_6</title>
+     </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+        <!-- Titre du traitement -->
+         <h1>Editions ENI - JavaScript - Exercice CH3_6</h1>
+
+        <!-- Début script JavaScript -->
+        <script>
+            /* Affichage du nom du script */
+            alert ("Exercice CH3_6");
+
+            /* Saisie des paramètres */
+            a = prompt("a :");
+            b = prompt("b :");
+            c = prompt("c :");
+             
+            /* Calcul des discriminant */
+            delta = (parseInt(b) * parseInt(b)) - (4 * parseInt(a) * parseInt(c));
+
+            /* Affichage des résultats */
+            document.write("a: " + a + <br />);
+            document.write("b: " + b + <br />);
+            document.write("c: " + c + <br />);
+            document.write("Discriminant delta : " + delta + "<br />");
+
+            /* Détermination des racines */
+            if (delta < 0) {
+                document.write("Pas de solutions");
+            }
+            else{
+                if (delta == 0){
+                    document.write("Solution unique : " + (-b / (2 * a)))
+                }
+                else {
+                    document.write("solution n°1 : " + (-b + Math.sqrt(delta)) /               )
+                }
+            }
+
+
+
+        </script>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location=
+            'view-source: '+window.location">
+                    Code source
+        </a>
+        </center>
+
+    </body>
+    
+ </html>
