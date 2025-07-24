@@ -1,8 +1,85 @@
 <title>POO</title>
 
 
-<h2>Limite de l'héritage de la séquence n°9</h2>
+<h2>Une seconde limite à notre héritage</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Vehicule = function() {};
 
+    /* Ajout d'une méthode accélèrer au prototype du constructeur Voiture */
+    Vehicule.prototype.accelerer = function() {
+        document.write("accélère<br />");
+    };
+
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Voiture = function() {};
+    
+    /* Copie de tous les éléments (attributs et méthodes) du prototype du constructeur Vehicule */
+    /* dans le prototype du constructeur Voiture */
+    /* NB : Surtout ne pas faire Voiture.prototype = Vehicule.prototype car dans ce cas le prototype serait partagé */
+    for (cle in Vehicule.prototype) {
+        Voiture.prototype[cle] = Vehicule.prototype[cle];
+    }
+
+    /* Ajout de la méthode ralentir au prototype du constructeur Vehicule */
+    Vehicule.prototype.ralentir = function() {
+        document.write("ralentit<br />");
+    };
+    
+    /* Instanciation d'un objet vaisseau via le constructeur Vehicule */
+    var vaisseau = new Vehicule();
+
+    /* Appel de la méthode ralentir pour l'objet vaisseau */
+    document.write("Le vaisseau ");
+    vaisseau.ralentir();
+
+    /* Instanciation d'un objet vaisseau via le constructeur Vehicule */
+    var simca1100 = new Voiture();
+
+    /* Appel de la méthode ralentir pour l'objet simca1100 */
+    document.write("la simca1100 ");
+    simca1100.ralentir();
+
+
+</script>
+
+
+<h2>Limite de l'héritage de la séquence n°9</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Vehicule = function() {};
+
+    /* Ajout d'une méthode accélèrer au prototype du constructeur Voiture */
+    Vehicule.prototype.accelerer = function() {
+        document.write("accélère<br />");
+    };
+
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Voiture = function() {};
+    
+    /* Copie de tous les éléments (attributs et méthodes) du prototype du constructeur Vehicule */
+    /* dans le prototype du constructeur Voiture */
+    /* NB : Surtout ne pas faire Voiture.prototype = Vehicule.prototype car dans ce cas le prototype serait partagé */
+    for (cle in Vehicule.prototype) {
+        Voiture.prototype[cle] = Vehicule.prototype[cle];
+    }
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+    var simca1100 = new Voiture();
+
+    /* Le constructeur utilisé pour la création de l'objet simca1100 est-il Voiture? */
+    document.write("simca1100 a pour constructeur Voiture : ");
+    document.write(simca1100 instanceof Voiture);
+
+    /* Le constructeur utilisé pour la création de l'objet simca1100 est-il Vehicule? */
+    document.write("<br />simca1100 a pour constructeur Vehicule : ");
+    document.write(simca1100 instanceof Vehicule);
+    
+</script>
 
 
 <h2>Mécanisme de l'héritage</h2>
