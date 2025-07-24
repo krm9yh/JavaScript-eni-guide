@@ -1,0 +1,293 @@
+<title>POO</title>
+
+
+<h2>Limite de l'héritage de la séquence n°9</h2>
+
+
+
+<h2>Mécanisme de l'héritage</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Vehicule = function() {};
+
+    /* Ajout d'une méthode accélèrer au prototype du constructeur Voiture */
+    Vehicule.prototype.accelerer = function() {
+        document.write("accélère<br />");
+    };
+
+    /* Ajout d'une méthode ralentir au prototype du constructeur Vehicule */
+    Vehicule.prototype.ralentir = function() {
+        document.write("ralentit<br />");
+    };
+
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Voiture = function() {};
+    
+    /* Copie de tous les éléments (attributs et méthodes) du prototype du constructeur Vehicule */
+    /* dans le prototype du constructeur Voiture */
+    /* NB : Surtout ne pas faire Voiture.prototype = Vehicule.prototype car dans ce cas le prototype serait partagé */
+    for (cle in Vehicule.prototype) {
+        Voiture.prototype[cle] = Vehicule.prototype[cle];
+    }
+
+    /* Surcharge du prototype du constructeur Voiture (ajout d'une méthode freiner) */
+    Voiture.prototype.freiner = function() {
+        document.write("freine <br/>");
+    };
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+    var simca1100 = new Voiture();
+
+    /* Appel de la méthode accelerer de l'objet simca1100 accessible depuis la copie du prototype du constructeur Vehicule */
+    document.write("La simca1100 ");
+    simca1100.accelerer();
+
+    /* Appel de la méthode freiner (surchagée) de l'objet simca1100 accessible depuis la copie du prototype du constructeur Voiture */
+    document.write("La simca1100 ");
+    simca1100.freiner();
+   
+    /* Appel de la méthode ralentir de l'objet simca1100 accessible depuis la copie du prototype du constructeur Vehicule */    
+    document.write("La simca1100 ");
+    simca1100.ralentir();
+    
+</script>
+
+
+
+
+
+
+<h2>Extension d'un prototype</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Voiture = function() {};
+
+    /* Ajout d'une méthode accélèrer au prototype du constructeur Voiture */
+    Voiture.prototype.accelerer = function() {
+        document.write("accélère<br />");
+    };
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+    var simca1100 = new Voiture() ;
+
+    /* Appel de la méthode accélèrer de l'objet simca1100 accessible via le prototype du constructeur Voiture */
+    document.write("La simca1100 ");
+    simca1100.accelerer();
+
+    /* Ajout (surcharge) de la méthode ralentir accessible via le prototype du constructeur Voiture */ 
+   Voiture.prototype.ralentir = function() {
+        document.write("ralentit<br />");
+    };
+
+    /* Appel de la méthode ralentir (ajoutée dans le prototype du constructeur Voiture) à partir de l'objet simca1100 */
+    document.write("La simca1100 ");
+    simca1100.ralentir();
+
+</script>
+
+
+
+
+<h2>Surcharge (modification) d'une méthode</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Voiture = function() {};
+
+    /* Ajout d'une méthode piler au prototype du constructeur Voiture */
+    Voiture.prototype.piler = function() {
+        document.write("pile<br />");
+    };
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+    var simca1100 = new Voiture() ;
+
+    /* Appel de la méthode piler de l'objet simca1100 accessible via le prototype du constructeur Voiture */
+    document.write("La simca1100 ");
+    simca1100.piler();
+
+    /* Instanciation d'un objet renault12 via le constructeur voiture */
+    var renault12 = new Voiture();
+
+    /* Modification (surcharge) de la méthode piler pour l'objet simca1100 */ 
+    simca1100.piler = function() {
+        document.write("pile brutalement <br />");
+    };
+
+    /* Appel de la méthode piler (surchargée) de l'objer simca1100 */
+    document.write("La simca1100 ");
+    simca1100.piler();
+
+    /* Appel de la méthode piler (non surchargée) de l'objet simca1100 */
+    document.write("La renault12 ");
+    renault12.piler();
+
+</script>
+
+
+<h2>Notion de prototype</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    /* NB : Le constructeur est ici vide */
+    var Voiture = function() {};
+
+    /* Test de l'existence par défaut d'un prototype pour tout constructeur */
+    document.write("Prototype du constructeur : " + Voiture.prototype);
+
+    /* Ajout d'une méthode zigzaguer au prototype du constructeur Voiture */
+    Voiture.prototype.zigzaguer = function() {
+        document.write("zigzague dangereusement <br />");
+    };
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+    var simca1100 = new Voiture();
+
+    /* Appel de la méthode zigzaguer de l'objet simca1100 zaccessible via le prototype du constructeur Voiture */
+    document.write("<br />Que fait la simca1100 ? Elle ");
+    simca1100.zigzaguer();
+
+    /* Instanciation d'un objet renault12 via le constructeur Voiture */
+    var renault12 = new Voiture();
+
+    /* Test méthode zigzaguer partagée ou pas entre les objets simca1100 et renault12 */
+    if (simca1100.zigzaguer == renault12.zigzaguer) {
+        document.write("Méthode zigzaguer <strong>partagée</strong> par les objets simca1100 et renault12<br />");
+    }
+    else {
+        document.write("Méthode zigzaguer <strong>non partagée</strong> par les objets simca1100 et renault12<br />");
+    }
+                                                          
+</script>
+
+
+
+<h2>Non-partage des méthodes par les instances d'objets</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    var Voiture = function() {
+        /* Attribut(s) de l'objet */
+        this.possedeMoteur = true;
+        /* Méthode(s) de l'objet */
+        this.avancer = function() {
+            document.write("avance");
+        }
+        this.reculer = function() {
+            document.write("recule");
+        }
+    }
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+    var simca1100 = new Voiture(); 
+
+    /* Instanciation d'un objet renault12 via le constructeur Voiture */
+    var renault12 = new Voiture();
+
+    /* Test d'agalité des méthodes avancer des objets simca1100 et renault12 */
+    if (simca1100.avancer == renault12.avancer) {
+        document.write("Méthode avancer partagée par les objets simca1100 et renault12<br />");
+    }
+    else {
+        document.write("Méthode avancer <strong>non partagée</strong> par les objets simca1100 et renault12<br />");
+    }
+</script>
+
+
+
+<h2>Passage de paramètre(s) à un constructeur</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    var Voiture = function(modele) {
+        /* Attribut(s) de l'objet renseigné à l'instanciation */
+        this.modele = modele;
+    }
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture avec passage de paramètre */
+    var maVoiture = new Voiture("simca1100");
+
+    /* Affichage de l'attribut modele de l'objet maVoiture */
+    document.write("Je possède une " + maVoiture.modele);
+</script>
+
+
+
+<h2>Variables privées dans une instance</h2>
+<script>
+    /* Définiton d'une fonction constructeur de nom Voiture */
+    var Voiture = function() {
+        /* Variable(s) locale(s) non accessible(s) depuis l'extérieur de l'objet */
+        var nombreRoues = 4;
+        /* Méthode(s) de l'objet */
+        this.avancer = function() {
+            document.write("avance");
+        }
+    }
+
+    /* Instanciation d'un objet simca 1100 via le constructeur Voiture */
+    var simca1100 = new Voiture();
+
+    /* Appel de la méthode avancer de l'objet simca1100 */
+    document.write("La voiture simca1100 ");
+    simca1100.avancer();
+
+    /* Tentative d'affichage de la variable locale du constructeur Voiture */
+    document.write("<br />");
+    document.write("La voiture simca1100 a " + simca1100.nombreRoues + " roues");
+
+</script>
+
+
+
+
+<h2>Création d'objet JavaScript par constructeur</h2>
+<script>
+    /* Définition d'une fonction constructeur de nom Voiture */
+    var Voiture = function() {
+        /* Atttribut(s) de l'objet */
+        this.possedeMoteur = true;
+        /* Méthode(s) de l'objet */
+        this.avancer = function() {
+            document.write("avance");
+        }
+    }
+
+    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+    var simca1100 = new Voiture();
+
+    /* Affichage de l'attribut possedeMoteur de l'objet simca1100 */
+    if (simca1100.possedeMoteur) {
+        document.write("La voiture simca 1100 possède bien un moteur <br />");
+    }
+    else {
+        document.write("La voiture simca 1100 ne possède pas de moteur ! <br />");
+    }
+
+    /* Appel de la méthode avancer de l'objet simca1100 */
+    document.write("La voiture simca1100 ");
+    simca1100.avancer();
+
+</script>
+
+<h2>Déclaration des objets JavaScript en méthode "Inline"</h2>
+
+
+<script>
+
+
+    /* Déclaration  inline d'un objet Javascript */
+    /* NB : Cette technique ne permet pas l'héritage à partir de l'objet par la suite */
+    var Addition = {
+        x : 5,
+        y : 10,
+        calcul : function() {
+            return this.x + this.y;
+        }
+    };
+
+    /* Utilisation de l'objet Addition */
+    document.write("Somme : " + Addition.calcul());
+
+</script>
+
