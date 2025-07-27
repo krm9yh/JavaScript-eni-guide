@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: STRING.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 25/7/2025
+OBJET: Démonstration de l'Objet NAVIGATOR
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>STRING</title>
+
+         
+     </head>
+
+
+    <body>
+        <h1>Editions ENI - JavaScript - STRING</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            /* Définition de variables de type String */
+            var prenom = new String("Christian");
+            var nom = "VIGOUROUX";
+            document.write("Prénom : "+ prenom);
+            document.write("<br/>Nom : "+ nom);
+
+            /* Initiale du prénom */
+            document.write("<br />Initiale du prénom : "+ prenom.charAt(0));
+
+            /* Caractère Unicode (position dans table ASCII) de l'initiale du nom */
+            document.write("<br />Caractère Unicode (position dans table ASCII) de l'initiale du nom : "+ nom.charCodeAt(0));
+
+            /* Concaténation du prénom et du nom */
+            var identite = prenom.concat(" ");
+            identite = identite.concat(nom);
+            document.write("<br />Prénom & Nom : " + identite);
+
+            /* Position de la première lettre "U" dans le nom (attention la numération débute à 0) */
+            var position_premier_u = nom.indexOf("U") + 1;
+            document.write("<br />Le premier 'U' du nom est en position : " + position_premier_u)
+
+            /* Position de la dernière lettre "U" dans le nom (attention la numération débute à 0) */
+            var position_dernier_u = nom.lastIndexOf("U") + 1;
+            document.write("<br />Le dernier 'U' du nom est en position : " + position_dernier_u)
+
+            /* Remplacement d'une chaîne de caractères */
+            var origineNom = nom.replace("ROUX", "REUX");
+            document.write("<br />Origine du nom: " + origineNom);
+
+            /* Extraction d'une sous-chaîne par méthode slice (position_début, position_fin - 1) */
+            var surnom = nom.slice(0, 4);
+            document.write("<br />Surnom (méthode slice) : " + surnom);
+
+            /* Extraction d'une sous-chaîne par méthode substr (position_début, longueur) */
+            var surnom = nom.substr(0, 4);
+            document.write("<br />Surnom (méthode substr) : " + surnom);
+
+            /* Extraction d'une sous-chaîne par méthode substring (position_début, position_fin - 1) */
+            var surnom = nom.substring(0, 4);
+            document.write("<br />Surnom (méthode substring) : " + surnom);
+
+            /* Mise d'une phrase en tableau */
+            var auteur = "Christian VIGOUROUX est le rédacteur de ce livre";
+            var tableauAuteur = auteur.split(" ");
+            document.write("<br />Le nom de l'auteur de ce livre : " + tableauAuteur[1]);
+
+            /* Conversion en majuscules */
+            document.write("<br />Le prénom en majuscules : " + prenom.toUpperCase());
+
+            /* Conversion en minusculues */
+            document.write("<br />Le nom en majuscules : " + nom.toLowerCase());
+            
+            /* Suppression des espaces non significatifs en début et fin de chaîne de caractères */
+            var identite = "                                Christian VIGOUROUX";
+            document.write("<br/>Identité avec espaces non significatifs : " + "[" + identite + "]" );
+            document.write("<br/>Identité avec espaces non significatifs : " + "[" + identite.trim() + "]" );
+
+        </script>
+
+
+
+    </body>
+    
+ </html>

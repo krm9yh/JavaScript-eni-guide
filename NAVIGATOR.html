@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: NAVIGATOR.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 25/7/2025
+OBJET: Démonstration de l'Objet NAVIGATOR
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>NAVIGATOR</title>
+
+         
+     </head>
+
+
+    <body>
+        <h1>Editions ENI - JavaScript - NAVIGATOR</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            /* Fonction testerNavigateur */
+            function testerNavigateur() {
+                var caracteristiquesNavigateur = "";
+                caracteristiquesNavigateur += "Code du Navigateur : " + navigator.appCodeName + "<br />" ;
+                caracteristiquesNavigateur += "Nom du Navigateur : " + navigator.appName + "<br />" ;
+                caracteristiquesNavigateur += "Version : " + navigator.appVersion + "<br />" ;
+                caracteristiquesNavigateur += "Support des coookies : " + navigator.cookieEnabled + "<br />" ;
+                caracteristiquesNavigateur += "Système d'exploitation : " + navigator.platform + "<br />" ;
+                caracteristiquesNavigateur += "User-agent header : " + navigator.userAgent + "<br />" ;
+                caracteristiquesNavigateur += "User-agent language : " + navigator.systemLanguage + "<br />" ;
+
+                /* Affichage des caractéristiques du navigateur */
+                document.getElementById("affichageInfosNavigateur").innerHTML = caracteristiquesNavigateur;
+
+            }
+            
+
+        </script>
+
+        <div>
+            <input 
+                type ="button"
+                value="Caractéristiques du navigateur"
+                onclick="testerNavigateur()"
+            />
+        </div>
+
+        <!-- Division d'affichage des caractéristiques du navigateur -->
+        <br /><br />
+        <div id="affichageInfosNavigateur"></div>
+
+
+    </body>
+    
+ </html>
