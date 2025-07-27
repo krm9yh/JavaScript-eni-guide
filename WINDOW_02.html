@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: WINDOW_02.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 25/7/2025
+OBJET: Démonstration de l'Objet WINDOW
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>WINDOW_02</title>
+
+         <script>
+            /* Fonction ouvrirFenetre */
+            function ouvrirFenetre(URL) {
+                maFenetre = window.open(
+                    URL, "FENETRE_02",
+                    "width=940, height=1100, location=1, titlebar=yes, resizable=yes"
+                );
+            }
+
+            /* Fonction fermerFenetre */
+            function fermerFenetre() {
+                maFenetre.close();
+            }
+         </script>
+
+     </head>
+
+
+    <body>
+        <h1>Editions ENI - JavaScript - WINDOW_02</h1>
+
+        <!-- Formulaire -->
+        <form>
+            Ouverture d'une fenêtre avec passage de l'URL en paramètre <br/>
+            <input
+                type="button"
+                value="Ouverture d'une fenêtre yahoo.fr"
+                onclick="ouvrirFenetre('http://www.yahoo.fr')"
+            >
+        <br /><br /><br />
+        Fermeture de la fenêtre<br />
+        <input
+            type="button"
+            value="Fermeture de la fenêtre"
+            onclick="fermerFenetre()"
+        >
+        </form>
+
+        <script>
+        
+            
+
+        </script>
+
+
+    </body>
+    
+ </html>

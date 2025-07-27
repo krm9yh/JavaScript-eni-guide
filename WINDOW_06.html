@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: WINDOW_06.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 25/7/2025
+OBJET: Démonstration de l'Objet WINDOW
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>WINDOW_06</title>
+
+         <script>
+            function revenirPagePrecedente() {
+                window.history.back()
+            }
+         </script>
+
+         
+
+     </head>
+
+
+    <body>
+        <h1>Editions ENI - JavaScript - WINDOW_06</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            /* Informations sur l'URL de la page en cours */
+
+            /* Propriété host */
+            document.write("<br /> Propriété location.host : " + window.location.host);
+
+            /* Propriété hostname */
+            document.write("<br /> Propriété location.hostname : " + window.location.hostname);
+
+            /* Propriété href */
+            document.write("<br /> Propriété location.href : " + window.location.href);
+
+            /* Propriété pathname */
+            document.write("<br /> Propriété location.pathname : " + window.location.pathname);
+
+            /* Propriété port */
+            document.write("<br /> Propriété location.port : " + window.location.port);
+            
+
+        </script>
+
+        <div>
+            <input 
+                type ="button"
+                value="Retour à la page précédente"
+                onclick="revenirPagePrecedente() "
+            />
+        </div>
+
+
+    </body>
+    
+ </html>
