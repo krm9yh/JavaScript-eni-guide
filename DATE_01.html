@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: DATE_01.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 25/7/2025
+OBJET: Démonstration de l'Objet Date
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>DATE_01</title>
+
+     </head>
+
+
+    <body>
+        <h1>Editions ENI - JavaScript - DATE_01</h1>
+
+        <script>
+            /* Méthode getDate -> retourne le n° du jour dans le mois de la date système */ 
+            var dateDuJour = new Date();
+            var jourMois = dateDuJour.getDate();
+            document.write("N° du jour de la date système : " + jourMois)
+
+            /* Méthode getDay -> retourne le n° du jour dans la semaine (n° de 0 à 6) de la date système */ 
+            var dateDuJour = new Date();
+            var jourSemaine = dateDuJour.getDay();
+            document.write("<br />N° du jour dans la semaine (n° de 0 à 6) de la date système : " + jourSemaine)
+
+            /* Méthode getMonth -> retourne le n° du mois (n° de 0 à 11) de la date système */ 
+            var dateDuJour = new Date();
+            var mois = dateDuJour.getMonth();
+            document.write("<br />N° du mois de la date système : " + (mois + 1));
+
+            /* Méthode getfullYear -> retourne le n° de l'année (sur 4 positions) de la date système */ 
+            var dateDuJour = new Date();
+            var annee = dateDuJour.getFullYear();
+            document.write("<br />N° de l'année de la date système : " + annee);
+
+            /* Méthode getHours -> retourne l'heure (n° de 0 à 23) de la date système */ 
+            var dateDuJour = new Date();
+            var heure = dateDuJour.getHours();
+            document.write("<br />N° de l'heure de la date système : " + heure);
+
+            /* Méthode getMinutes -> retourne le n° de la minute (n° de 0 à 59) de la date système */ 
+            var dateDuJour = new Date();
+            var minute = dateDuJour.getMinutes();
+            document.write("<br />N° de la minute de la date système : " + minute);
+
+            /* Méthode getSecondes -> retourne le n° de la seconde (n° de 0 à 59) de la date système */ 
+            var dateDuJour = new Date();
+            var seconde = dateDuJour.getSeconds();
+            document.write("<br />N° de la seconde de la date système : " + seconde);
+
+            /* Méthode setDate -> définit un n° de jour dans le mois par rapport à la date système (le 15 du mois dans notre cas) */ 
+            var dateDuJour = new Date();
+            dateDuJour.setDate(15);
+            document.write("<br />Le 15 du mois correspondant à la date système : " + dateDuJour);
+
+            /* Méthode setMonth -> définit la date un mois en arrière par rapport à la date système */ 
+            var dateDuJour = new Date();
+            dateDuJour.setMonth(dateDuJour.getMonth()-1);
+            document.write("<br />Un mois en arrière par rapport à la date système : " + dateDuJour);
+
+            /* Méthode setFullYear -> définit la date un an en arrière par rapport à la date système */ 
+            var dateDuJour = new Date();
+            dateDuJour.setFullYear(dateDuJour.getFullYear()-1);
+            document.write("<br />Un an en arrière par rapport à la date système : " + dateDuJour);
+
+            /* Méthode toLocaleDateString -> convertit la date système en chaîne date en version locale=FR */ 
+            var dateDuJour = new Date();
+            var dateLocale = dateDuJour.toLocaleDateString();
+            document.write("<br />Date système (version locale=FR) : " + dateLocale);
+
+            /* Méthode toLocaleTimeString -> convertit la date système en chaîne heures/minutes/secondes en version locale=FR */ 
+            var dateDuJour = new Date();
+            var heureLocale = dateDuJour.toLocaleTimeString();
+            document.write("<br />Heures/Minutes/Secondes (version locale=FR) : " + heureLocale);
+
+        </script>
+
+
+    </body>
+    
+ </html>

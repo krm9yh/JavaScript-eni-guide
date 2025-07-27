@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<!--
+NOM DU SCRIPT: DATE_02.htm
+REALISATION INFORMATIQUE: Christian VIGOUROUX
+DATE DE CREATION: 15/10/2025
+DATE DE DERNIERE MODIFICATION : 25/7/2025
+OBJET: Démonstration de l'Objet Date
+-->
+
+<!-- Début script HTML -->
+ <html>
+    <!-- Début en-tête script HTML -->
+     <head>
+
+        <!-- Balise meta -->
+         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!-- Titre du script HTML -->
+         <title>DATE_02</title>
+
+        <script type="text/JavaScript">
+        
+        </script>
+
+     </head>
+
+
+    <body>
+        <h1>Editions ENI - JavaScript - DATE_02</h1>
+
+        <!-- Formulaire avec buttons de démarrage et d'arrêt  -->
+        <div>
+            <input
+                type="button"
+                value="Démarrage du timer"
+                onclick="demarrerTimer()"
+            />
+            <input
+                type="button"
+                value="Arrêt du timer"
+                onclick="arreterTimer()"
+            />
+        </div>
+
+        <!-- Division d'affichage du timer -->
+        <br/><br/>
+        <div id="affichageTimer">Timer</div>
+
+        <script type="text/JavaScript">
+            /* Fonction demarrerTimer */
+            function demarrerTimer() {
+                /* Valeur de départ du timer */
+                valeurTimer = 11;
+
+                /* Appel de la fonction d'actualisation du timer */
+                actualiserTimer();
+            }
+
+            function actualiserTimer() {
+                if (valeurTimer > 0) {
+                    /* Décrémentation d'une unité (secondes) */
+                    valeurTimer = valeurTimer - 1;
+                    /* Affichage de la valeur actualisée du timer */
+                    document.getElementById("affichageTimer").innerHTML = valeurTimer;
+                    /* Actualisation par appel de la fonction actualiserTimer */
+                    if (valeurTimer > 0) {
+                        /* Actualisation toutes les secondes (1000 millisecondes) */
+                        monTimer = setTimeout("actualiserTimer()", 1000)
+                    }
+                }
+            }
+
+            /* Fonction arreterTimer */
+            function arreterTimer() {
+                clearTimeout(monTimer);
+            }
+            
+
+        </script>
+
+
+
+    </body>
+    
+ </html>
