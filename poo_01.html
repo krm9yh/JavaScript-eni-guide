@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_01.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : "POO" en EcmaScript 5 (notion de prototype)
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 5 & 6 : Notion de prototype - Script poo_01.html</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    /* Définition d'une fonction constructeur de nom Voiture */
+                    /* NB : Le constructeur est ici vide */
+                    var Voiture = function() {};
+
+                    /* Test de l'existence par défaut d'un prototype */
+                    /* pour tout constructeur */
+                    document.write("Prototype du constructeur : " + Voiture.prototype);
+
+                    /* Ajout d'une méthode zigzaguer au prototype du constructeur Voiture */
+                    Voiture.prototype.zigzaguer = function() {
+                        document.write("zigzague dangereusement<br />");
+                    };
+
+                    /* Instanciation d'un objet simca1100 via le constructeur Voiture */
+                    var simca1100 = new Voiture();
+
+                    /* Appel de la méthode zigzaguer de l'objet simca1100 accessible */
+                    /* via le prototype du constructeur Voiture */
+                    document.write("<br />Que fait la simca1100 ? Elle ");
+                    simca1100.zigzaguer();
+
+                    /* Instanciation d'un objet renault12 via le constructeur Voiture */
+                    var renault12 = new Voiture();
+
+                    /* Test méthode zigzaguer partagée ou pas */
+                    /* entre les objets simca1100 et renault12 */
+                    if (simca1100.zigzaguer == renault12.zigzaguer) {
+                        document.write("Méthode zigzaguer partagée ");
+                        document.write("par les objets simca1100 et renault12<br />");
+                    }
+                    else {
+                        document.write("Méthode zigzaguer non partagée");
+                        document.write("par les objets simca1100 et renault12<br />")
+                    }
+                </script>
+        </font>
+    </body>
+
+</html>
