@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_05.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : "POO" en EcmaScript 6 (exemple 1)
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : POO (déclaration de classe) - Script poo_05.html</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    // Définition d'une classe Voiture
+                    class Voiture {
+                        // Méthode constructeur
+                        constructor(marque, modele, pays) {
+                            this.marque = marque;
+                            this.modele = modele;
+                            this.pays = pays;
+                        }
+
+                        // Méthode afficherVoiture
+                        afficherVoiture() {
+                            return "Marque : " + this.marque 
+                            + "<br />Modèle : " + this.modele
+                            + "<br/>Pays : " + this.pays;
+                        }
+                    }
+
+                    // Instanciation d'un objet simca1100 de la classe Voiture
+                    let simca1100 = new Voiture("Simca", "1100", "France");
+
+                    // Appel de la méthode afficherVoiture de la classe Voiture
+                    document.write(simca1100.afficherVoiture());
+
+                </script>
+        </font>
+    </body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_06.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : "POO" en EcmaScript 6 (exemple 2)
+Référence : https://www.wanadev.fr/21-introduction-a-ecmascript-6-le-javascript-de-demain/
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : POO (héritage) - Script poo_06.html</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    // Définition d'une classe Voiture
+                    class Voiture {
+                        // Méthode constructeur
+                        constructor(marque, modele, pays) {
+                            this.marque = marque;
+                            this.modele = modele;
+                            this.pays = pays;
+                        }
+
+                        // Méthode afficherVoiture
+                        afficherVoiture() {
+                            return "Marque : " + this.marque 
+                            + "<br />Modèle : " + this.modele
+                            + "<br/>Pays : " + this.pays;
+                        }
+                    }
+
+                    // Définition d'une class VoitureSport (extension de la classe Voiture)
+                    class VoitureSport extends Voiture {
+                        // Méthode constructeur
+                        constructor(marque, modele, pays, vitessemaxi) {
+                            // Héritage des attributs de la classe parente Voiture
+                            super(marque, modele, pays);
+
+                            // Attribut spécifique de la classe VoitureSport
+                            this.vitessemaxi = vitessemaxi;
+                        }
+
+                        // Méthode méthode afficherVoitureSport
+                        afficherVoitureSport() {
+                            return super.afficherVoiture()
+                            + "<br />Vitesse maximale : " + this.vitessemaxi;
+                        } 
+                    }
+
+                    // Instanciation d'un objet simca1100 de la classe Voiture
+                    let simca1100 = new Voiture("Simca", "1100", "France");
+
+                    // Appel de la méthode afficherVoiture de la classe Voiture
+                    document.write(simca1100.afficherVoiture());
+
+                    // Instanciation d'un objet porshe911 de la classe VoitureSport
+                    let porshe911 = new VoitureSport("Porshe", "911", "France", 290);
+
+                    // Appel de la méthode afficherVoitureSport de la classe VoitureSport
+                    document.write("<br /><br />" + porshe911.afficherVoitureSport());
+
+                </script>
+        </font>
+    </body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_07.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : Utilisation de la syntaxe arrow (=>)
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <!-- Scripts de compatibilité ES6 (transpiling) pour Microsoft Edge -->
+        <script
+            src="https://google.github.io/traceur-compiler/bin/traceur.js">    
+        </script>
+        <script
+            src="https://google.github.io/traceur-compiler/src/bootstrap.js">
+        </script>
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : Utilisation de la syntaxe arrow (=>)</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    
+                    // Définition d'un tableau JavaScript voiture de sport
+                    // (marque uniquement)
+                    let tabVoitureSport = ["Porshe", "Ferrari", "BMW"];
+
+                    // Boucle d'affichage de 3 marques préférées
+                    // NB : Utilisation de forEach
+                    document.write("<br />boucle d'affichage de marques préférées");
+                    document.write(" (utilisation de forEach sans notation =>) :<br />")
+                    tabVoitureSport.forEach(function(marque){
+                        document.write("Marque : " + marque + "<br />");
+                    })
+
+                    // Boucle d'affichage de 3 marques préférées
+                    // NB : Utilisation de forEach avec notation =>
+                    document.write("<br />Boucle d'affichage de 3 marques préférées");
+                    document.write(" (utilisation de ForEach avec notation =>) : <br />");
+                    tabVoitureSport.forEach(marque => {
+                        document.write("Marque : " + marque + "<br />");
+                    })
+
+                    // Définition d'un objet JavaScript de voitures de sport
+                    // (sans arrow function)
+                    var objVoituresSport1 = {
+                        marques: ["Porshe", "Ferrari", "BMW"],
+                        genre: "Voitures de sport",
+                        afficherVoitures: function() {
+                            // Le self sert à récuperer le contexte parent
+                            // (utile pour afficher la propriété genre)
+                            // car function(marque) crée un nouveau scope
+                            // (différent de son parent)
+                            var self = this;
+                            this.marques.forEach(function(marque) {
+                                document.write("Marque : " + marque + " - ");
+                                document.write("Genre : " + self.genre + "<br />");
+                            })
+                        }
+                    };
+
+                    // Affichage des marques via la méthode afficherVoitures
+                    document.write("<br />Boucle d'affichage de 3 marques préférées");
+                    document.write(" avec leur genre (ForEach sans notation =>) : <br />");
+                    objVoituresSport1.afficherVoitures();
+
+                    // Définition d'un objet JavaSript voiture de sport
+                    // (avec arrow function)
+                    var objVoituresSport2 = {
+                        marques: ['Porshe', 'Ferrari', 'BMW'],
+                        genre: 'Voitures de sport',
+                        afficherVoitures: function() {
+                            // Le self n'est plus nécessaire
+                            // car l'arrow function ne crée pas son propre scope
+                            // this.genre fait référence au this du parent
+                            this.marques.forEach((marque) => {
+                                document.write("Marque : " + marque + " - ");
+                                document.write("Genre : " + this.genre + "<br />")
+                            })
+                        }
+                    }
+
+                    // Affichage des marques via la méthode afficherVoitures
+                    document.write("<br />boucle d'affichage de 3 marques préférées ");
+                    document.write("avec leur genre (ForEAchavec notation =>) :<br />");
+                    objVoituresSport2.afficherVoitures();
+                </script>
+        </font>
+    </body>
+
+</html>

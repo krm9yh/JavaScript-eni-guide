@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_09.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : Map et Set
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <!-- Scripts de compatibilité ES6 (transpiling) pour Microsoft Edge -->
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : Map, Set et boucle for ... of</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+
+                    //
+                    // Définition d'un tableau JavaScript et affichage de son contenu
+                    //
+                    document.write("<h4>Tableau JavaScript</h4>");
+                    // Définition d'un tableau JavaScript de voitures (marque uniquement)
+                    // let tabVoitures = ["Porshe", "Ferrari", "BMW"];
+                    let tabVoitures = new Array("Porshe", "Ferrari", "BMW");
+                    // Ajout d'une 4e voiture
+                    tabVoitures.push("Simca");
+                    // Affichage des marques du tableau tabVoitures (via for)
+                    document.write("Marques du tableau tabVoitures (via <b>for</b>) :<br />");
+                    for (i = 0; i < tabVoitures.length; i++) {
+                        document.write(tabVoitures[i] + "<br />");
+                    }
+                    // Affichage des marques du tableau tabVoitures (via for of)
+                    document.write("<br />Marques du tableau tabVoitures");
+                    document.write(" (via <b>for of</b>) :<br />");
+                    for (let marque of tabVoitures) {
+                        document.write(marque + "<br />");   
+                    } 
+                    // Affichage du nombre de voitures présentes dans le tableau tabVoitures
+                    document.write("<br />Nombre de voitures du tableau tabVoitures : " + tabVoitures.length);
+                    
+
+                    //
+                    // Définition d'un Map JavaScript et affichage de son contenu
+                    //
+                    document.write("<h4>Map JavaScript</h4>");
+                    // Définition d'un Map JavaSript de voitures
+                    // (code en tant que clé, libelle en tant que valeur)
+                    let mapVoitures = new Map ([["porshe911", "Porshe911"], ["testarossa", "Ferrari Testarossa"], ["bmwm5", "BMW W5"]
+                    ]);
+                    // Ajout d'une 4e voiture
+                    mapVoitures.set("simca1100", "Simca 1100");
+                    // Affichage des voitures (code uniquement) du Map mapVoitures
+                    document.write("<b>Clés</b> du Map mapVoitures : <br />");
+                    for (let cle of mapVoitures.keys()) {
+                        document.write("Code voiture : " + cle + "<br />");
+                    }
+                    // Affichage des voitures (libelle uniquement) du Map mapVoitures
+                    document.write("<br /><b>Valeurs</b> (libelle) du Map mapVoitures : <br />");
+                    for (let valeur of mapVoitures.values()) {
+                        document.write("Libellé voiture : " + valeur + "<br />");
+                    }
+                    // Affichage des voitures (code, libelle) du Map mapVoitures
+                    // (via entries en tant qu'itérables)
+                    document.write("<br/>");
+                    document.write("Voitures du Map mapVoitures");
+                    document.write(" (via entries en tant qu'<b>itérables</b>)");
+                    document.write("<br />");
+                    for (let voiture of mapVoitures.entries()) {
+                        document.write(voiture[0] + " - " + voiture[1] + "<br />");
+                    }
+                    // Affichage des voitures (code, libelle) du Map mapVoitures
+                    // (via entries destructuré)
+                    document.write("<br />");
+                    document.write("Voitures du MapVoitures");
+                    document.write(" (via entries <b>destructuré</b>)");
+                    document.write("<br />");
+                    for (let [cle, valeur] of mapVoitures.entries()) {
+                        document.write(cle + " - " + valeur + "<br />");
+                    }
+
+                    // Affichage du nombre de voitures présentes dans le Map mapvoitures
+                    document.write("<br />Nombre de voitures du Map mapVoitures : "
+                        + mapVoitures.size);
+
+                    //
+                    // Définition d'un Set JavaScript et affichage de son contenu
+                    //
+                    document.write("<h4>Set JavaScript</h4>");
+                    // Définition d'un Set JavaScript de voitures
+                    let setVoitures = new Set (["Porshe 911",
+                                                "Ferrari Testarossa",
+                                                "BMW M5", "BMW M5"
+                                                ]
+                                            );
+                    
+                    // Ajout d'une voiture supplémentaire dans le Set setVoitures
+                    setVoitures.add("Simca1100");
+                    // Affichage du contenu du Set setVoitures
+                    document.write("Contenu du Set setVoitures :<br />");
+                    for (voiture of setVoitures) {
+                        document.write(voiture + "<br />");
+                    }
+                    // Affichage du nombre de voitures présentes dans le Set setVoitures
+                    document.write("<br />Nombre de voitures du Set setVoitures : "
+                                    + setVoitures.size);
+
+                </script>
+        </font>
+    </body>
+
+</html>

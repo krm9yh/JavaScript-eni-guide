@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_07.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : "POO" en EcmaScript 6 (exemple 3)
+Référence : https://www.wanadev.fr/21-introduction-a-ecmascript-6-le-javascript-de-demain/
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : POO (getter, setter et méthode statique) - Script poo_07.html</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    // Définition d'une classe Voiture
+                    class Voiture {
+                        // Méthode constructeur
+                        constructor(marque, modele, pays) {
+                            this.marque = marque;
+                            this.modele = modele;
+                            this.pays = pays;
+                        }
+
+                        // Méthode de type getter (accès à la valeur de l'attribut marque)
+                        get getMarque() {
+                            // Retour de la marque
+                            return this.marque;
+                        }
+
+                        // Méthode de type getter (accès à la valeur de l'attribut modele)
+                        get getModele() {
+                            // Retour de la marque
+                            return this.modele;
+                        }
+
+                        // Méthode de type getter (accès à la valeur de l'attribut pays)
+                        get getPays() {
+                            // Retour de la marque
+                            return this.pays;
+                        }
+
+                        // Méthode de type setter (modification de l'attribut modele)
+                        set setModele(value) {
+                            this.modele = value;
+                        }
+
+                        // Méthode statique comptant le nombre d'objets créés
+                        // par l'intermédiaire de cette classe
+                        static getNombreVoitures() {
+                            if(!this.compteurVoitures && this.compteurVoitures !== 0) {
+                                // Initialisation du compteur d'objets instanciés
+                                // (s'il n'existe pas déjà)
+                                this.compteurVoitures = 0;
+                            }
+                            else {
+                                // Incrémentation du nombre d'objets instanciés
+                                this.compteurVoitures++;
+                            }
+                            // Valeur de retour
+                            return this.compteurVoitures + 1;
+                        }
+                    }
+
+                    // Instanciation d'un objet porshe911 de la classe Voiture
+                    // et affichage du nombre d'objets instanciés
+                    let porshe911 = new Voiture("Porshe", "911", "Allemagne");
+                    document.write("Marque : " + porshe911.getMarque + "<br />");
+                    document.write("Modele : " + porshe911.getModele + "<br />");
+                    document.write("Pays : " + porshe911.getPays + "<br />");
+                    document.write("Nombre de voitures instanciées : "
+                        + Voiture.getNombreVoitures() + "<br /><br />");
+                    
+                    // Modification de l'objet porshe911
+                    porshe911.setModele = "911 Turbo";
+                    document.write("Modèle (après modification) : "
+                        + porshe911.getModele + "<br /><br />");
+                    
+                    // Instanciation d'un objet testarossa de la classe Voiture
+                    // et affichage du nombre d'objets instanciés
+                    let testarossa = new Voiture("Ferrari", "Testarossa", "Italie");
+                    document.write("Marque : " + testarossa.getMarque + "<br />");
+                    document.write("Modele : " + testarossa.getModele + "<br />");
+                    document.write("Pays : " + testarossa.getPays + "<br />");
+                    document.write("Nombre de voitures instanciées : "
+                        + Voiture.getNombreVoitures() + "<br /><br />");
+
+
+                </script>
+        </font>
+    </body>
+
+</html>
