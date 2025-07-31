@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : destructuring.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : Destructuring de tableaux et d'objets JavaScript
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <!-- Scripts de compatibilité ES6 (transpiling) pour Microsoft Edge -->
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : Destructuring de tableaux et d'objets</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    // Définition d'un tableau JavaScript de marques de voitures de sport
+                    let marquesVoituresSport = ["Porshe", "Ferrari", "BMW"];
+
+                    // Premier destructuring du tableau JavaScript marquesVoitureSport
+                    // en variables mémoire
+                    let [marque1, marque2, marque3] = marquesVoituresSport
+
+                    // Affichages de contrôle
+                    document.write("Marque n°1 : " + marque1 + "<br />");
+                    document.write("Marque n°2 : " + marque2 + "<br />");
+                    document.write("Marque n°3 : " + marque3 + "<br /><br />");
+
+                    // Deuxième destructuring du tableau JavaScript marquesVoituresSport
+                    // en variables mémoire
+                    let [marque4, , marque6] = marquesVoituresSport
+
+                    // Affichage de contrôle
+                    document.write("Marque n°4 : " + marque4 + "<br />");
+                    document.write("Marque n°6 : " + marque6 + "<br /><br />");
+
+                    // Définition d'un objet JavaSript porshe911
+                    let porshe911 = {
+                        marque : "Porshe",
+                        modele : "911"
+                    };
+
+                    // Destructuring de l'objet porshe911 en variables mémoire
+                    let {marque, modele} = porshe911;
+
+                    // Affichages do contrôle
+                    document.write("Marque préféré : " + marque + "<br />");
+                    document.write("Modèle préféré : " + modele);
+                   
+
+                </script>
+        </font>
+    </body>
+
+</html>

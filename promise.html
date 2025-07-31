@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : promise.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : Utilisation des promesses
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <!-- Scripts de compatibilité ES6 (transpiling) pour Microsoft Edge -->
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : Utilisation des promesses</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    // Définition d'une promesse
+                    // NB1 : Le traitement consiste à tester la vitesse atteinte 
+                    // par deux voitures de sport au bout de 5 secondes
+                    // NB2 : La voiture qui sera gagnante est désignée de manière aléatoire
+                    // par Math.random (qui fournit une réponse entre 0 et 1)
+                    document.write("Démarrage des deux voitures");
+                    document.write(" Porshe 911 vs Ferrari Testarossa <br />");
+                    var maPromesse = new Promise(function (resolve, reject){
+                        // Délai de 5 secondes
+                        setTimeout(function() {
+                            // Tirage aléatoire de la voiture la plus rapide
+                            if (Math.random() > 0.5) {
+                                // Porshe 911
+                                // NB : le choix de placer cette voiture
+                                // dans le cas resolve est arbitraire
+                                resolve("La Porshe 911 est la plus rapide");
+                            } else {
+                                // Ferrari Testarossa
+                                // NB : le choix de placer cette voiture
+                                // dans le cas reject est arbitraire 
+                                reject("Ferrari Testarossa est la plus rapide");
+                            }
+                        }, 5000);
+                    });
+
+                    // Affichage alors que la promesse n'a pas encore été traitée 
+                    // (traitement asynchrone)
+                    document.write("Contrôle radar dans 5 secondes")
+
+                    // Compte rendu du fonctionnement de la promesse 
+                    maPromesse
+                        .then(function(verdict) {
+                            // Cas Porshe 911
+                            alert("Verdict : " + verdict);
+                        })
+                        .catch(function(verdict) {
+                            // Cas Ferrari Testarossa
+                            alert("Verdict : " + verdict);
+                        });
+                    
+
+                </script>
+        </font>
+    </body>
+
+</html>

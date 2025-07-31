@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<!--
+Nom du script : poo_10.html
+Auteur : Christian VIGOUROUX
+Date de création : 15/10/2025
+Date de dernière modification : 15/10/2025
+Objet : Déclaration de variables via var ou let
+-->
+
+<!-- Balise html -->
+<html>
+    <!-- Section head -->
+    <head>
+        <!-- Balise meta de gestion de l'accentuation UTF-8 -->
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <!-- Scripts de compatibilité ES6 (transpiling) pour Microsoft Edge -->
+    </head>
+
+    <!-- Section body -->
+    <body>
+        <!-- Utilisation de la police de carctères Arial -->
+        <font face="Arial">
+            <!-- Affichage du titre du script -->
+            <h3>EcmaScript 6 : Déclarations de variables via var et let</h3>
+
+                <!-- Script JavaScript -->
+                <script>
+                    // Définition d'une variable porshe911 via var
+                    // (portée dans l'ensembe du script)
+                    var porshe911 = "Porshe 911";
+                    // NB : un let au lieu d'un var à ce niveau du script n'aurait
+                    //      aucune incidence sur la portée
+
+                    // Boucle d'affichage de 3 marques préférées
+                    // NB : Utilisation de var varMarque -> varMarque sera reconnue 
+                    //      dans tout le script
+                    document.write("<br />Boucle d'affichage de 3 marques préférées");
+                    document.write(" (utilisation de <b>var</b>) :<br />");
+                    for (var varMarque of ["Porshe", "Ferrari", "BMW"]) {
+                        document.write("Marque : " + varMarque + "<br />");
+                    }
+
+                    // Affichage de la variable porshe911
+                    document.write("<br />porshe911 : " + varMarque + "<br />");
+
+                    // Affichage de la variable varMarque
+                    // NB : Le message s'affichera, car varMarque a une portée globale 
+                    //      (même si elle a été déclarée dans une boucle for)
+                    document.write("<br />Marque : " + varMarque + "<br />");
+
+                    // Boucle d'affichage de 3 marques préférées
+                    // NB : Utilisation de let letMarque -> letMarque sera reconnue 
+                    //      uniquement dans la boucle for
+                    document.write("<br />Boucle d'affichage de 3 marques préférées");
+                    document.write(" (utilisation de <b>let</b>) :<br />");
+                    for (let letMarque of ["Porshe", "Ferrari", "BMW"]) {
+                        document.write("Marque : " + letMarque + "<br />");
+                    }
+
+                    // Affichage de la variable letMarque
+                    // NB : Le message ne s'affichera pas, car letMarque a été déclarée 
+                    //      dans le cadre d'une boucle for via un let
+                    document.write("<br />Marque : " + letMarque + "<br />");
+
+
+
+                </script>
+        </font>
+    </body>
+
+</html>
