@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : FORM_08.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : contrôle d'un choix dans une liste déroulante (version simplifiée)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>FORM_08</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+
+            // Fonction affichant les choix (multiples) effectués dans une liste déroulante
+            function controlerChoixListe (liste) {
+                for (i=0; i<document.forms.formulaire.liste.options.length; i++) {
+                    if (document.forms.formulaire.liste.options[i].selected) {
+                        alert("Sport sélectionné : " + document.forms.formulaire.liste.options[i].text)
+                    }
+                }
+                // Valeur de retour
+                return true
+            }
+        </script>
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - FORM_08</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Affichage du nom du script
+            alert("FORM_08");
+
+
+        </script>
+
+        <!-- Formulaire de saisie HTML -->
+        <form name = 'formulaire'>
+            sport pratiqué :
+            <select id='liste' size='7' multiple>
+                <optgroup label="Sports collectifs">
+                    <option value="football" selected>Football</option>
+                    <option value="volley">Volley</option>
+                </optgroup>
+                <optgroup label="Sports individuels">
+                    <option value="golf">Golf</option>
+                    <option value="natation" selected>Natation</option>
+                    <option value="tennis">Tennis</option>
+                </optgroup>
+                
+            </select> 
+            <input 
+                type='button'
+                onclick="controlerChoixListe(document.getElementById('liste'), 'Merci de choisir un sport dans la liste')"
+                value="Validation saisie"
+            />
+        </form>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>
