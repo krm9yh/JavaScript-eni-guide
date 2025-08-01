@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : FORM_01.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : Gestion de formulaire (contrôle de saisie)
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>FORM_01</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+
+            // Fonction de test de saisie
+            function nonVide(champ, messageAlerte) {
+                if (champ.value.length == 0) {
+                    // Affichage d'un message d'alerte
+                    alert(messageAlerte);
+                    // Focus sur le champ en erreur
+                    champ.focus();
+                    // Valeur de retour
+                    return false;
+                }
+                // Valeur de retour
+                alert("Votre nom est "
+                    + document.getElementById('nom').value);
+                    return true;
+            }
+        </script>
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - FORM_01</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Affichage du nom du script
+            alert("FORM_01");
+
+
+        </script>
+
+        <!-- Formulaire de saisie HTML -->
+        <form>
+            Votre nom (champ obligatoire) : 
+            <input 
+                type='text'
+                id="nom"
+            />
+            <input
+                type='button'
+                onclick="nonVide(document.getElementById('nom'),
+                'Saisie obligatoire')"
+                value="Validation saisie"
+            />  
+        </form>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>
