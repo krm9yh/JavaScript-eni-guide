@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : FORM_10.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : contrôle d'un choix par bouton radio
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>FORM_10</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+
+            // Fonction de test de la valeur sélectionnée dans un jeu de boutons radio
+            function selectionnerSport(messageAlerte) {
+                // Récupération des sports proposés dans le formulaire dans un tableau
+                var tabSports = document.forms.liste_sports.elements["sports[]"];
+                // Détermination du nombre de sports proposés
+                var nombreSports = tabSports.length;
+                // alert("Nombre de sports : " + nombreSports);
+                // Parcours du tableau des sports proposés
+                var i = 0;
+                var nombreSportsSelectionnes = 0;
+                while (i < nombreSports) {
+                    // Test si le sport a été coché
+                    if (tabSports[i].checked) {
+                        // Incrémentation du nombre de sports sélectionnés
+                        nombreSportsSelectionnes = nombreSportsSelectionnes + 1;
+                        // Affichage de contrôle
+                        alert("Votre sport favori est " + tabSports[i].value);
+                    }
+                    i = i + 1;
+                }
+                // Message d'alerte si aucun sport n'a été sélectionné
+                if (nombreSportsSelectionnes == 0) {
+                    // Message d'alerte
+                    alert(messageAlerte);
+                    // Valeur de retour
+                    return false;
+                }
+                else {
+                    // Valeur de retour
+                    return true;
+                }
+            }
+        </script>
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - FORM_10</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Affichage du nom du script
+            alert("FORM_10");
+
+
+        </script>
+
+        <!-- Formulaire de saisie HTML -->
+        <form name = 'liste_sports'>
+            sport pratiqué : <br />
+            <input
+                type="checkbox"
+                name="sports[]"
+                value="golf">
+                Golf
+            </input><br />
+            <input
+                type="checkbox"
+                name="sports[]"
+                value="football">
+                Football
+            </input><br />
+            <input
+                type="checkbox"
+                name="sports[]"
+                value="natation">
+                Natation
+            </input><br />
+            <input
+                type="checkbox"
+                name="sports[]"
+                value="Tennis">
+                Tennis
+            </input><br />
+            <input
+                type="button"
+                onclick="selectionnerSport('Veuillez sélectionner votre sport préféré')"
+                value="Validation saisie">
+        </form>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_03.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_03
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_03</title>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_03</h1>
+
+        <!-- Définition de plusieurs liens hypertextes consécutifs dans le document -->
+         Moteur de recherche <a href="http://www.google.fr" id="google">Google</a><br />
+         Site d'information <a href="http://www.yahoo.fr" id="yahoo">Yahoo</a><br />
+         Encyclopédia <a href="http://www.wikipedia.com/fr" id="wikipedia">Wikipedia</a>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Saut de ligne
+            document.write("<br /><br />");
+
+            // Affichage du nombre de lien(s) 'hypertexte du document'
+            document.write("Nombre de lien(s) 'hypertexte' du document : " + document.links.length + "<br />");
+
+            // Affichage de l'identifiant du 2eme 'hypertexte du document'
+            document.write("Identifiant du 2ème lien 'hypertexte' du document : " + document.links[1].id + "<br />");
+
+            // Affichage de URL du 3e lien 'hypertexte du document'
+            document.write("URL du 3ème lien 'hypertexte' du document : " + document.links[2].href + "<br />");
+
+
+        </script>
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

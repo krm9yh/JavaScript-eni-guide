@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_01.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_01
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_01</title>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_01</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Affichage du nom du script
+            alert("DOM_01");
+
+            // Affichage Hello World! par la méthode document.write
+            document.write("Hello World!<br />");
+
+            // Affichage Hello World! par la méthode document.write 
+            // avec mise en gras du mot World
+            document.write("Hello <b>World</b>");
+        </script>
+
+        <div id="container"></div>
+
+        <script>
+            // Recherche de l'élément div ayant comme identifiant container
+            var ancienContainer = document.getElementById('container');
+
+            // Création en mémoire d'un élément div
+            //var nouvelleDiv = document.createElement('div');
+
+            // Création du node du type texte
+            var textDiv = document.createTextNode('Bonjour le monde')
+
+            // Affectation du node texteDiv au node nouvelleDiv
+            ancienContainer.appendChild(textDiv);
+
+            // Intégration du nouveau div
+            // ancienContainer.appendChild(nouvelleDiv)
+
+
+        </script>
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

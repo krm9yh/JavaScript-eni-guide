@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_04.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_04
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_04</title>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_04</h1>
+
+        <!-- Définition de plusieurs images consécutives dans le document -->
+        <img id="van_van_1" border="1" src="van_van_01.png" width="150" height="100">
+        </img><br /><br />
+        <img id="van_van_2" border="2" src="van_van_02.png" width="150" height="100">
+        </img><br /><br />
+        <img id="van_van_3" border="1" src="van_van_03.png" width="150" height="100">
+        </img><br /><br />
+        <img id="van_van_4" border="2" src="van_van_04.png" width="220" height="150">
+        </img><br /><br />
+
+        
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Affichage du nombre d'image(s) du document
+            document.write("Nombre d'image(s) du document : " + document.images.length + "<br />");
+
+            // Affichage de l'identifiant de la 1re image
+            document.write("Identifiant de la 1ère image : " + document.images[0].id + "<br />");
+
+            // Affichage de l'attribut border de la 2e image
+            document.write("Atribut border de la 2ème image : " + document.images[1].border + "<br />");
+
+            // Affichage de l'attribut src de la 3e image
+            document.write("Attribut src de la 3ème image : " + document.images[2].src + "<br />");
+
+            // Affichage des attributs width et height de la 4e image
+            document.write("Attribut width de la 4ème image : " + document.images[3].width + "<br />");
+            document.write("Attribut height de la 4ème image : " + document.images[3].height + "<br />");
+
+
+        </script>
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

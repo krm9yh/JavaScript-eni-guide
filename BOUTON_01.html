@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_08.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_08
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_08</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Fonction desactiverBouton
+            function desactiverBouton() {
+                document.getElementById("monBouton").disabled=true;
+            }
+
+            // Fonction afficherMonBouton
+            function afficherNomBouton(nomBouton) {
+                alert("L'intitulé du bouton sélectionné est " + nomBouton);
+            }
+
+            // Fonction afficherIdentifiantBouton
+            function afficherIdentifiantElement(idBouton) {
+                alert("Le bouton sélectionné a pour identifiant " + idBouton);
+            }
+
+        </script>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_08</h1>
+
+        <!-- Formulaire avec un bouton à désactiver -->
+        <form name="formulaire1">
+            Un clic sur le bouton de confirmation va le désactiver<br><br />
+            <input
+                type="button"
+                id="monBoutton"
+                value="OK"
+                onclick="desactiverBouton();"
+            />
+        </form>
+
+        <!-- Formulaire avec 2 boutons (obtention de l'intitulé) -->
+        <br /><hr><br />
+        <form name="formulaire2">
+            Un clic sur l'un des boutons en affichera le nom (intitulé)<br /><br />
+            <input
+                type="button"
+                id="monBoutton1"
+                value="Bouton1"
+                onclick="afficherNomBouton(this.value);"
+            /><br />
+            <input
+                type="button"
+                id="monBoutton2"
+                value="Bouton2"
+                onclick="afficherNomBouton(this.value);"
+            /><br />
+        </form>
+
+        <!-- Formulaire avec 2 boutons et 1 lien hypertexte (obtention de l'identifiant) -->
+        <br /><hr><br />
+        Un clic sur l'un des boutons ou  le lien hypertexte en affichera l'identifiant<br /><br />
+        <form name="formulaire3">
+            <input
+                type="button"
+                id="monBoutton3"
+                value="Bouton3"
+                onclick="afficherIdentifiantElement(this.id);"
+            /><br />
+            <input
+                type="button"
+                id="monBoutton4"
+                value="Bouton4"
+                onclick="afficherIdentifiantElement(this.id);"
+            /><br />
+            <a
+                href="#"
+                id="monLien"
+                onclick="afficherIdentifiantElement(this.id);">
+                Lien hypertexte</a>
+        </form>
+
+        
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+
+        </script>
+
+        <!-- Formulaire -->
+        <br /><br />
+
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

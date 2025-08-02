@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_02.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_02
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_02</title>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_02</h1>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Affichage du nom du script
+            alert("DOM_02");
+
+            // Mise en évidence de la différence entre document.write et document.writeln
+            // NB 1 : Avec la méthode writeln le retour chariot en fin de ligne est implicite
+            // NB 2 : La méthode writeln requiert l'encadrement de la séquence par un jeu de <pre> ... </pre>
+            document.write("<pre>");
+            document.write("Ligne n°1<br />");
+            document.write("Ligne n°2<br />");
+            document.write("Ligne n°3<br /><br />");
+            document.writeln("Ligne n°4");
+            document.writeln("Ligne n°5");
+            document.write("Ligne n°6");
+            document.write("</pre>");
+
+        </script>
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

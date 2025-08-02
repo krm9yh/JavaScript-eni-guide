@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_07_3.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_07_3
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_07_3</title>
+
+        <!-- Début script JavaSript -->
+        <script>
+            // Fonction historyBack
+            function historyBack() {
+                // Retour à la page précédente
+                window.history.back()
+            }
+        </script>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_07_3</h1>
+
+        
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+
+            // Affichage du nom du script
+            alert("DOM_07_3");
+
+            // Affichage de l'URL de la page donnant accès au document
+            document.write("URL de la page donnant accès au document : " + document.referrer + "<br />");
+
+            // Affichage de la valeur du paramètre passé par la page précédente
+            // NB : param contiendra la chaîne ?param=Eni%20JavaScript
+            var param = window.location.search;
+            document.write("Paramètre (avant recodage) : " + param + "<br />");
+            // Décodage du paramètre (remplacement de 20% par un espace dans notre cas)
+            param = unescape(param);
+            document.write("Paramètre (après recodage) : " + param + "<br />");
+
+            // Suppression du nom du paramètre (livre dans notre cas)
+            param = param.substring(param.lastIndexOf("=")+1);
+            document.write("Valeur du paramètre : " + param);
+        </script>
+
+        <!-- Formulaire -->
+        <br /><br />
+        <form>
+            <input
+                type="button"
+                id="bouttonHistoryBack"
+                value="Retour à la page précédente"
+                onclick="historyBack()"
+            />
+        </form>
+            
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

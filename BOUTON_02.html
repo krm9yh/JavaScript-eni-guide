@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_08_2.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_08_2
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_08_2</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Fonction desactiverBouton
+            function desactiverBouton() {
+                document.getElementById("monBouton").disabled=true;
+            }
+
+            // Fonction afficherMonBouton
+            function afficherNomBouton(nomBouton) {
+                alert("L'intitulé du bouton sélectionné est " + nomBouton);
+            }
+
+            // Fonction afficherIdentifiantBouton
+            function afficherIdentifiantElement(idBouton) {
+                alert("Le bouton sélectionné a pour identifiant " + idBouton);
+            }
+
+        </script>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_08_2</h1>
+
+
+        <!-- Formulaire formulaire1 avec trois boutons -->
+        Formulaire n°1 :<br />
+        <form name="formulaire1">
+            <input
+                type="button"
+                id="monBoutton1"
+                value="Bouton1"
+                onclick="afficherPropretiesBouton(this.value, this.id);"
+            /><br />
+            <input
+                type="button"
+                id="monBoutton2"
+                value="Bouton2"
+                onclick="afficherPropretiesBouton(this.value, this.id);"
+            /><br />
+            <input
+                type="button"
+                id="monBoutton3"
+                value="Bouton3"
+                onclick="afficherPropretiesBouton(this.value, this.id);"
+            /><br />
+        </form>
+
+        <!-- Formulaire formulaire2 avec deux boutons -->
+        <br /><hr /><br />
+        Formulaire n°2 :<br />
+        <form name="formulaire2">
+            <input
+                type="button"
+                id="monBoutton4"
+                value="Bouton4"
+                onclick="afficherPropretiesBouton(this.value, this.id);"
+            /><br />
+            <input
+                type="button"
+                id="monBoutton5"
+                value="Bouton5"
+                onclick="afficherPropretiesBouton(this.value, this.id);"
+            /><br />
+        </form>
+
+        
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Affichage du nombre de balises input dans l'ensemble des formulaires
+            var listeInput = document.getElementsByTagName('input');
+            var nombreInput = listeInput.length;
+            document.write("<br /><hr /><br />");
+            document.write("Nombre de balises input dans l'ensemble des formulaires : "
+                + nombreInput + "<br />");
+
+            // Affichage du nombre de balises input dans le 2e formulaire
+            var liste2Input = document.forms[1].getElementsByTagName('input');
+            var nombre2Input = liste2Input.length;
+            document.write("Nombre de balises input dans le 2ème formulaire : "
+                + nombre2Input + "<br />");
+
+            // Fonction afficherProprietesBouton
+            function afficherPropretiesBouton (nomBouton, idBouton) {
+                alert("L'intitulé du bouton sélectionné est " + nomBouton 
+                + " et ce bouton appartient au formulaire " 
+                + document.getElementById(idBouton).form.name);
+            }
+
+
+        </script>
+
+        <!-- Formulaire -->
+        <br /><br />
+
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>
