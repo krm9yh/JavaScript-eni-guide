@@ -23,41 +23,64 @@ OBJET : TABLE_03
 
         <!-- Début script JavaScript -->
         <script type="text/JavaScript">
-            function ajouterLigneDebutTableau ()
+            // Fonction ajouterLigneFinTableau
+            function ajouterLigneFinTableau ()
             {
+                // Affichage du nombre de lignes du tableau
+                var nombreLignes = parseInt(document.getElementById('monTableau').rows.length);
+                // alert("Nombre de ligne(s) du tableau : " + nombreLignes);
 
+                // Ajout d'une ligne vide après la dernière ligne actuelle du tableau
+                var tabLigne = document.getElementById('monTableau').insertRow(nombreLignes);
+
+                // Ajout d'une colonne 0 (Modèle) dans la ligne créée et stockage d'une valeur
+                var colonne0 = tabLigne.insertCell(0);
+                colonne0.innerHTML = "Porshe 959";
+
+                // Ajout d'une colonne 1 (Puissance) dans la ligne créée et stockage d'une valeur
+                var colonne1 = tabLigne.insertCell(1);
+                colonne1.innerHTML = "450";
 
             }
 
-            function modifierCellule ()
+            function ajouterLigneDebutTableau ()
             {
-                // Affichage de contrôle du numéro de la ligne sélectionnée dans le tableau
-                var numeroLigne2 = parseInt(document.getElementById('numLigne2').value);
-
-                // Affichage de contrôle du numéro de la colonne sélectionnée dans le tableau
-                var numeroColonne2 = parseInt(document.getElementById("numColonne2").value);
-
                 // Affichage du nombre de lignes du tableau
-                var nombreLignes = parseInt(document.getElementById("monTableau").rows.length);
+                var nombreLignes = parseInt(document.getElementById('monTableau').rows.length);
+                // alert("Nombre de ligne(s) du tableau : " + nombreLignes);
 
-                // Affichage du nombre de colonnes du tableau 
-                // (par détemination du nombre de cellules de la ligne du titre)
-                var nombreColonnes = parseInt(document.getElementById("monTableau").rows[0].cells.length);
-            
-                // Mise en tableau des cellules de la ligne en cours
-                var tabLigne = document.getElementById('monTableau').rows[numeroLigne2].cells;
+                // Ajout d'une ligne vide après la dernière ligne actuelle du tableau
+                var tabLigne = document.getElementById('monTableau').insertRow(nombreLignes);
 
-                // Modification de la cellule
-                if (((numeroLigne2 >= 0)) && (numeroLigne2 <= (nombreLignes - 1)) && ((numeroColonne2 >= 0)) && (numeroColonne2 <= (nombreColonnes - 1)))
+                // Ajout d'une colonne 0 (Modèle) dans la ligne créée et stockage d'une valeur
+                var colonne0 = tabLigne.insertCell(0);
+                colonne0.innerHTML = "Ferrari";
+
+                // Ajout d'une colonne 1 (Puissance) dans la ligne créée et stockage d'une valeur
+                var colonne1 = tabLigne.insertCell(1);
+                colonne1.innerHTML = "478";
+                
+            }
+
+            function supprimerLigneTableau() 
+            {
+                // Affichage de contrôle du numéro de la ligne à supprimer dans le tableau
+                var numeroLigne = parseInt(document.getElementById('numLigne').value);
+                // alert("N° de ligne à supprime : " + numeroLigne);
+                // Affichage du nombre de ligne du tableau
+                var nombreLignes = parseInt(document.getElementById('monTableau').rows.length);
+                // alert("Nombre de ligne(s) du tableau : " + nombresLignes);
+                // Suppression de la ligne
+                if ((numeroLigne >= 1) && (numeroLigne < nombreLignes))
                 {
-                    // Modification
-                    tabLigne[numeroColonne2].innerHTML = "Nouvelle valeur";
+                    // Suppression
+                    document.getElementById('monTableau').deleteRow(numeroLigne);
                 }
-                else 
+                else
                 {
-                    alert("Votre numéro de ligne ou votre numéro de colonne est erroné");
+                    // N° de ligne erroné
+                    alert("N° de ligne erroné");
                 }
-
             }
         </script>
 
@@ -67,7 +90,7 @@ OBJET : TABLE_03
     <body>
 
         <!-- Titre du traitement -->
-        <h1>Editions ENI - JavaScript - TABLE_03</h1>
+        <h1>Editions ENI - JavaScript - TABLE_05</h1>
 
 
         <!-- Tableau HTML -->

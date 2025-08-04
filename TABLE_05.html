@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : TABLE_05.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : TABLE_05
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>TABLE_05</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Fonction colorerTitreTableau
+            function colorerTitreTableau ()
+            {
+                // Affichage du nombre de colonne du tableau (par détermination du nombre de celllules de la ligne de titre)
+                var nombreColonnes = parseInt(document.getElementById('monTableau').rows[0].cells.length);
+                alert("Nombre de colonne(s) du tableau : " + nombreColonnes);
+
+                // Mise en tableau mémoire (tabLigne) des cellules de la ligne n°0 (titre)
+                var tabLigne = document.getElementById('monTableau').rows[0].cells;
+
+                // Modification de la couleur des cellules de la ligne n°0 (titre)
+                for (numeroColonne = 0; numeroColonne<nombreColonnes; numeroColonne++)
+                {
+                    // Coloration de la cellule en cours en orange (code RGB #FFA500)
+                    tabLigne[numeroColonne].bgColor = "#FFA500";
+                }
+
+            }
+
+            // Fonction colorerLignesTableau
+            function colorerLignesTableau ()
+            {
+                // Affichage du nombre de lignes du tableau
+                var nombreLignes = parseInt(document.getElementById('monTableau').rows.length);
+                alert("Nombre de ligne(s) du tableau : " + nombreLignes);
+
+                // Affichage du nombre de colonnes du tableau (par détermination du nombre de cellules de la ligne de titre)
+                var nombreColonnes = document.getElementById('monTableau').rows[0].cells.length;
+                alert("Nombre de colonne(s) du tableau : " + nombreColonnes);
+
+                // Coloration des lignes (hors titre) alternativement en gris/blanc
+                for (i=1; i<nombreLignes; i++)
+                {
+                    // Mise en tableau mémoire (tabLigne) des cellules de la ligne en cours
+                    var tabLigne = document.getElementById('monTableau').rows[i].cells;
+                    
+                    // Modification de la couleur des cellules de la ligne en cours
+                    for (numeroColonne = 0; numeroColonne<nombreColonnes; numeroColonne++)
+                    {
+                        if (i%2 == 0)
+                        {
+                            // Coloration de la cellule en cours en argent (code RGB #C0C0C0)
+                            tabLigne[numeroColonne].bgColor = "silver";
+                        }
+                        else
+                        {
+                            // Coloration de la cellule en cours en blanc (code RGB #FFFFFF)
+                            tabLigne[numeroColonne].bgColor = "white";
+                        }
+                    }
+
+                }
+
+
+            }
+
+
+        </script>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - TABLE_05</h1>
+
+
+        <!-- Tableau HTML -->
+        <table id="monTableau" border="1" cellspacing="1" cellpadding="1">
+            <!-- Définition de la ligne n°0 du tableau (titre) -->
+            <tr>
+                <td>Modèle</td>
+                <td>Puissance</td>
+            </tr>
+            <!-- Définition de la ligne n°1 du tableau -->
+            <tr>
+                <td>AC Cobra</td>
+                <td>380</td>
+            </tr>
+            <!-- Définition de la ligne n°2 du tableau -->
+            <tr>
+                <td>Ferrari 512 BB</td>
+                <td>380</td>
+            </tr>
+            <!-- Définition de la ligne n°3 du tableau -->
+            <tr>
+                <td>Lambroghini Miuri</td>
+                <td>385</td>
+            </tr>
+            <!-- Définition de la ligne n°4 du tableau -->
+            <tr>
+                <td>Porshe 964 3.6</td>
+                <td>360</td>
+            </tr>
+            <!-- Définition de la ligne n°5 du tableau -->
+            <tr>
+                <td>Porshe 964 3.6</td>
+                <td>360</td>
+            </tr>
+        </table>
+
+        
+        <!-- Formulaire d'ajout en première ligne ou en dernière ligne -->
+        <br /><br />
+        <form>
+            Coloration du titre (orange) et des lignes (alternativement argent/blanc) du tableau<br /><br />
+            <input 
+                type="button"
+                id="boutonColorerTitreTableau"
+                value="Coloration du titre"
+                onclick="colorerTitreTableau()"
+            /><br />
+            <input 
+                type="button"
+                id="boutonColorerLignesTableau"
+                value="Coloration des lignes"
+                onclick="colorerLignesTableau()"
+            /><br />
+        </form>
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>
