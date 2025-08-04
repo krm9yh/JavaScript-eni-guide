@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : TABLE_03.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : TABLE_03
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>TABLE_03</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            function ajouterLigneDebutTableau ()
+            {
+
+
+            }
+
+            function modifierCellule ()
+            {
+                // Affichage de contrôle du numéro de la ligne sélectionnée dans le tableau
+                var numeroLigne2 = parseInt(document.getElementById('numLigne2').value);
+
+                // Affichage de contrôle du numéro de la colonne sélectionnée dans le tableau
+                var numeroColonne2 = parseInt(document.getElementById("numColonne2").value);
+
+                // Affichage du nombre de lignes du tableau
+                var nombreLignes = parseInt(document.getElementById("monTableau").rows.length);
+
+                // Affichage du nombre de colonnes du tableau 
+                // (par détemination du nombre de cellules de la ligne du titre)
+                var nombreColonnes = parseInt(document.getElementById("monTableau").rows[0].cells.length);
+            
+                // Mise en tableau des cellules de la ligne en cours
+                var tabLigne = document.getElementById('monTableau').rows[numeroLigne2].cells;
+
+                // Modification de la cellule
+                if (((numeroLigne2 >= 0)) && (numeroLigne2 <= (nombreLignes - 1)) && ((numeroColonne2 >= 0)) && (numeroColonne2 <= (nombreColonnes - 1)))
+                {
+                    // Modification
+                    tabLigne[numeroColonne2].innerHTML = "Nouvelle valeur";
+                }
+                else 
+                {
+                    alert("Votre numéro de ligne ou votre numéro de colonne est erroné");
+                }
+
+            }
+        </script>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - TABLE_03</h1>
+
+
+        <!-- Tableau HTML -->
+        <table id="monTableau" border="1" cellspacing="1" cellpadding="1">
+            <!-- Définition de la ligne n°0 du tableau (titre) -->
+            <tr>
+                <td>Modèle</td>
+                <td>Puissance</td>
+            </tr>
+            <!-- Définition de la ligne n°1 du tableau -->
+            <tr>
+                <td>Ferrari 512 BB</td>
+                <td>380</td>
+            </tr>
+            <!-- Définition de la ligne n°2 du tableau -->
+            <tr>
+                <td>Lambroghini Miuri</td>
+                <td>385</td>
+            </tr>
+            <!-- Définition de la ligne n°3 du tableau -->
+            <tr>
+                <td>Porshe 964 3.6</td>
+                <td>360</td>
+            </tr>
+        </table>
+
+        
+        <!-- Formulaire d'ajout en première ligne ou en dernière ligne -->
+        <br /><hr /><br />
+        <form name="formulaireAjout">
+            Ajout de lignes<br /><br />
+            <input 
+                type="button"
+                id="boutonAjouterLigneDebutTableau"
+                value="Ajout d'une ligne (début de tableau)"
+                onclick="ajouterLigneDebutTableau()"
+            /><br /><br />
+            <input 
+                type="button"
+                id="boutonAjouterLigneFinTableau"
+                value="Ajout d'une ligne (fin de tableau)"
+                onclick="ajouterLigneFinTableau()"
+            /><br />
+        </form>
+
+        <!-- Formulaire de suppression de lignes -->
+        <br /><hr /><br />
+        Suppression de lignes<br /><br />
+        <form name="formulaireSuppression">
+            N° de ligne à supprimer (n° à partir de 1) :
+            <input
+                type="txt"
+                id="numLigne"
+                value=""
+            /><br /><br />
+            <input
+                type="button"
+                id="boutonSupprimerLigneTableau"
+                value="Suppression d'une ligne"
+                onclick="supprimerLigneTableau()"
+            />
+        </form>
+
+
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

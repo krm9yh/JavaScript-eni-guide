@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : TABLE_02.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : TABLE_02
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>TABLE_02</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Fonction placerTraitAuDessus
+            function placerTraitAuDessus() {
+                document.getElementById('monTableau').frame="above";
+            }
+
+            // Fonction placerTraitAuDessous
+            function placerTraitEnDessous() {
+                document.getElementById('monTableau').frame="below";
+            }
+
+        </script>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - TABLE_02</h1>
+
+
+        <!-- Tableau HTML -->
+        <table id="monTableau" border="0" cellspacing="1" cellpadding="1">
+            <!-- Définition de la ligne n°0 du tableau (titre) -->
+            <tr>
+                <td>Modèle</td>
+                <td>Puissance</td>
+            </tr>
+            <!-- Définition de la ligne n°1 du tableau -->
+            <tr>
+                <td>Ferrari 512 BB</td>
+                <td>380</td>
+            </tr>
+            <!-- Définition de la ligne n°2 du tableau -->
+            <tr>
+                <td>Lambroghini Miuri</td>
+                <td>385</td>
+            </tr>
+            <!-- Définition de la ligne n°3 du tableau -->
+            <tr>
+                <td>Porshe 964 3.6</td>
+                <td>360</td>
+            </tr>
+        </table>
+
+        
+        <!-- Formulaire avec boutons -->
+        <br /><br />
+        <form>
+            Ajout/Suppression des traits de délimitation du tableau<br /><br />
+            <input 
+                type="button"
+                id="boutonTraitAuDessus"
+                value="Trait au-dessus du tableau"
+                onclick="placerTraitAuDessus();"
+            /><br />
+            <input 
+                type="button"
+                id="boutonTraitEnDessous"
+                value="Trait au-dessous du tableau"
+                onclick="placerTraitEnDessous();"
+            /><br />
+        </form>
+
+        <!-- Formulaire -->
+        <br /><br />
+
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

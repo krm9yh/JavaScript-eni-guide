@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : TABLE_01.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : TABLE_01
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>TABLE_01</title>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Fonction modifierBorder
+            function modifierBorder() {
+                if (document.getElementById('monTableau').border == "1") {
+                    // Passage à une épaisseur de 5
+                    document.getElementById('monTableau').border = "5";
+                }
+                else {
+                    // Passage à une épaisseur de 1
+                    document.getElementById('monTableau').border="1";
+                }
+            }
+
+            // Fonction modifierCellspacing
+            function modifierCellspacing() {
+                if (document.getElementById('monTableau').cellSpacing == "1") {
+                    // Passage à un cellspacing à 40
+                    document.getElementById('monTableau').cellSpacing = "40";
+                }
+                else {
+                    // Passage à un cellspacing de 1
+                    document.getElementById('monTableau').cellSpacing="1";
+                }
+            }
+
+            // Fonction modifierCellpadding
+            function modifierCellpadding() {
+                if (document.getElementById('monTableau').cellPadding == "1") {
+                    // Passage à un cellspacing à 40
+                    document.getElementById('monTableau').cellPadding = "40";
+                }
+                else {
+                    // Passage à un cellspacing de 1
+                    document.getElementById('monTableau').cellPadding="1";
+                }
+            }
+
+            // Fonction AjouterCaption
+            function AjouterCaption() {
+                // Instanciation et affichage du titre du tableau
+                var monTitre = document.getElementById('monTableau').createCaption();
+                monTitre.innerHTML = "Voitures de sport";
+            }
+
+        </script>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - TABLE_01</h1>
+
+
+        <!-- Tableau HTML -->
+        <table id="monTableau" border="1" cellspacing="1" cellpadding="1">
+            <!-- Définition de la ligne n°0 du tableau (titre) -->
+            <tr>
+                <td>Modèle</td>
+                <td>Puissance</td>
+            </tr>
+            <!-- Définition de la ligne n°1 du tableau -->
+            <tr>
+                <td>Ferrari 512 BB</td>
+                <td>380</td>
+            </tr>
+            <!-- Définition de la ligne n°2 du tableau -->
+            <tr>
+                <td>Lambroghini Miuri</td>
+                <td>385</td>
+            </tr>
+            <!-- Définition de la ligne n°3 du tableau -->
+            <tr>
+                <td>Porshe 964 3.6</td>
+                <td>360</td>
+            </tr>
+        </table>
+
+        
+        <!-- Formulaire avec boutons -->
+        <br /><br />
+        <form>
+            Modification des valeurs d'attributs du tableau<br /><br />
+            <input 
+                type="button"
+                id="boutonBorder"
+                value="Modification attribut border"
+                onclick="modifierBorder();"
+            /><br />
+            <input 
+                type="button"
+                id="boutonCellspacing"
+                value="Modification attribut cellspacing"
+                onclick="modifierCellspacing();"
+            /><br />
+            <input 
+                type="button"
+                id="boutonCellpadding"
+                value="Modification attribut cellpadding"
+                onclick="modifierCellpadding();"
+            /><br />
+            <input 
+                type="button"
+                id="boutonCaption"
+                value="Modification du titre de tableau"
+                onclick="AjouterCaption();"
+            />
+        </form>
+
+        <!-- Formulaire -->
+        <br /><br />
+
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>
