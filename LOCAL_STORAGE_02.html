@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCAL_STORAGE_02</title>
+
+    <script type="text/javascript">
+
+        /* Fonction ecrireLocalStorage */
+        function ecrireLocalStorage()
+        {
+            /* Test possibilité d'utiliser localStorage et JSON */
+            if (typeof localStorage != "undefined" && JSON)
+            {
+                /* Définition d'un objet JavaScript coordonneesPersonne */
+                var coordonneesPersonne = 
+                {
+                    nom:document.getElementById("nom").value,
+                    prenom:document.getElementById("prenom").value,
+                    mail:document.getElementById("mail").value
+                };
+                /* Sérialisation en un objet JSON de nom identite */
+                localStorage.setItem("identite", JSON.stringify(coordonneesPersonne));
+                /* Affichage de contrôle */
+                alert("localStorage n'est pas supporté");
+            }
+        };
+
+        /* Fonction supprimerLocalStorage */
+        function supprimerLocalStorage()
+        {
+            /* Test possibilité d'utiliser localStorage et JSON */
+            if (typeof localStorage != "undefined" && JSON)
+            {
+                /* Suppression de l'entrée identite dans le localStorage */
+                /* NB : sessionStorage.clear(); supprimerait également l'ensemble des entrées du localStorage */
+                sessionStorage.removeItem("identite");
+                /* Mise à jour des champs d'affichage (<input type"texte" ... />) */
+                document.getElementById("nom").value = "";
+                document.getElementById("prenom").value = "";
+                document.getElementById("mail").value = ""; 
+                /* Affichage de contrôle */
+                alert("Suppression de l'entrée identite dans le localStorage effectuée");
+            }
+            else
+            {
+                /* Message d'erreur (pas de possibilité de stockage localStorage) */
+                alert("localStorage n'est pas supporté");
+            }
+        };
+
+    </script>
+</head>
+<body>
+    <h1>Editions ENI - JavaScript - LOCAL_STORAGE_02</h1>
+
+    <script type="text/javascript">
+        /* Affichage du nom du script */
+        alert("LOCAL_STORAGE_02");
+
+    </script>
+
+    <!-- Tableau de saisie et d'affichage des champs Nom, Prénom et Mail -->
+    <table>
+        <tr>
+            <td>Nom</td>
+            <td>
+                <input
+                    type="text"
+                    id="nom"
+                    value=""
+                    size="40"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Prénom</td>
+            <td>
+                <input
+                    type="text"
+                    id="prenom"
+                    value=""
+                    size="40"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Mail</td>
+            <td>
+                <input
+                    type="text"
+                    id="mail"
+                    value=""
+                    size="40"
+                />
+            </td>
+        </tr>
+    </table>
+
+    <!-- Formulaire avec boutons d'écriture, de lecture et de suppression -->
+    <br />
+    <form>
+        <input
+            type="button"
+            id="boutonEcriture"
+            value="Ecriture dans localStorage"
+            onclick="ecrireLocalStorage();"
+        />
+        <br />
+        <input
+            type="button"
+            id="boutonLecture"
+            value="Lecture depuis localStorage"
+        />
+        <br />
+        <input
+            type="button"
+            id="boutonSuppression"
+            value="Suppression de l'entrée dans localStorage"
+            onclick="supprimerLocalStorage();"
+        />
+    </form>
+
+    <script type="text/javascript">
+        /* Lecture depuis le localStorage */
+        document.getElementById("boutonLecture").onclick = 
+        function () {
+            /* Test possibilité d'utiliser localStorage et JSON */
+            if (typeof localStorage != "undefined" && JSON)
+            {
+                /* Déserialisation de l'objet JSON lu */
+                var coordonneesPersonne = JSON.parse(localStorage.getItem("identite"));
+                /* Mise à jour des champs d'affichage (<input type ="text" ... >) */
+                document.getElementById("nom").value = coordonneesPersonne.nom;
+                document.getElementById("prenom").value = coordonneesPersonne.prenom;
+                document.getElementById("mail").value = coordonneesPersonne.mail;
+                /* Affichage de contrôle */
+                alert("Lecture depuis localStorage effectuée");
+            }
+            else
+            {
+                /* Message d'erreur (pas de possibilité de stockage localStorage) */
+                alert("localStorage n'est pas supporté");
+            }
+        };
+    </script>
+
+
+    
+</body>
+</html>

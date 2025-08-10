@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                /* Définition de la fonction verifJour */
+        function verifJour(numeroJour)
+        {
+            /*
+            Décrementation du paramètre passé pour tenir compte de l'indiçage des valeurs
+            du tableau débutant à 0
+            */
+            numeroJour = numeroJour - 1;
+
+            /* Déclaration d'un tableau des libellés de jour de la semaine */
+            var tableauJours = new Array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+
+            /* Test de validité du paramètre */
+            if (tableauJours[numeroJour] != null)
+            {
+                /* Valeur de retour (paramètre valide) */
+                return tableauJours[numeroJour];
+            }
+            else
+            {
+                /* Valeur de retour (paramètre invalide) */
+                return "Erreur dans le n° de jour";
+            }
+        }
+
+        /* Affichage du libellé du jour dans la semaine */
+        var numJour = 8;
+        try
+        {
+            /* Récupération du libellé du jour */
+            alert(verifJour(numJour));
+            alert(verificationJour(numJour))
+        }
+        catch(erreur)
+        {
+            alert(erreur);
+        }
+    </script>
+    
+</body>
+</html>

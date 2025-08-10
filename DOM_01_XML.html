@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : DOM_01_XML.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : DOM_01_XML
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>DOM_01_XML</title>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - DOM_01_XML</h1>
+
+        <!-- Affichage d'un message de type e-mail codé en XML -->
+        <h3>Affichage d'un message de type mail codé en XML</h3>
+        <div>
+            <b>Emetteur : </b> <span id="de"></span><br />
+            <b>Destinataire : </b> <span id="a"></span><br />
+            <b>Sujet : </b> <span id="sujet"></span><br />
+            <b>Message : </b> <span id="message"></span><br />
+        </div>
+
+        <!-- Début script JavaScript -->
+        <script type="text/JavaScript">
+            // Création d'un objet XMLHttpRequest pour échanger des données
+            // avec le serveur au format texte, XML ou JSON
+            //
+            // NB : Les fichiers XML sont automatiquement pasés par l'objet
+            // et accessibles par les méthodes du DOM
+            if (window.XMLHttpRequest)
+            {
+                // Code spécifique pour les navigateurs
+                // IE7+, Firefox, Chrome, Opera, Safari
+                var xmlhttp = new XMLHttpRequest();
+            }
+            else
+            {
+                // Code spécifique pour les navigateurs IE6, IE5
+                var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            // Ouverture du fichier XML email.xml en mode synchrone (false)
+            xmlhttp.open("GET", "email.xml", false);
+
+            // Emission de la requête HTTP vers le serveur
+            xmlhttp.send();
+
+            // Création du document XML en mémoire
+            var xmlDoc = xmlhttp.responseXML;
+
+            // Affichage du champ Emetteur
+            document.getElementById("de").innerHTML = xmlDoc.getElementsByTagName("de")[0].childNodes[0].nodeValue;
+
+            // Affichage du champ Destinataire
+            document.getElementById("a").innerHTML = xmlDoc.getElementsByTagName("a")[0].childNodes[0].nodeValue;
+
+            // Affichage du champ Sujet
+            document.getElementById("sujet").innerHTML = xmlDoc.getElementsByTagName("entete")[0].childNodes[0].nodeValue;
+
+            // Affichage du champ Message
+            document.getElementById("message").innerHTML = xmlDoc.getElementsByTagName("message")[0].childNodes[0].nodeValue;
+
+        </script>
+
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

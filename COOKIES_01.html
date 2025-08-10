@@ -1,0 +1,74 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : COOKIES_01.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : COOKIES_01
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>COOKIES_01</title>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - COOKIES_01</h1>
+
+
+        <script>
+            /* Définition de la fonction JavaScript de création d'un cookie */
+            function creationCookie(nomCookie, valeurCookie, expirationCookie, cheminCookie, domaineCookie, securiteCookie)
+            {
+                // Ternary operator
+                document.cookie = nomCookie + ' = ' + escape(valeurCookie) + ' ' + ((expirationCookie == undefined) ? '' : ('; expires=' + expirationCookie.toGMTString())) + ((cheminCookie == undefined) ? '' : ('; path=' + cheminCookie)) + ((domaineCookie == undefined) ? '' : ('; domain=' + domaineCookie)) + ((securiteCookie == true) ? '; securiteCookie' : '');
+            }
+            // La fonction escape réalise un encodage des caractères spéciaux en les 
+            // remplaçant par une séquence %remplacement où remplacement est un nombre 
+            // sous forme hexadécimale
+
+            /* Création d'un cookie par appel de la fonction creationCookie */
+            var dateExpiration = new Date();
+            dateExpiration.setTime(dateExpiration.getTime() + 300 * 1000);
+            // NB : - dateExpiration est un objet de type date (par défaut initialisé 
+            //        à la date système 
+            //      - La date de fin de validité du cookie (il sera supprimé) est 
+            //        calculée à partir de la date système (5 minutes plus tard ici, 
+            //        c'est-à-dire 300 secondes)
+            creationCookie("monCookie", "Editions ENI", dateExpiration, "/");
+            // Nom du cookie : monCookie
+            // Valeur du cookie : Editions ENI
+            // Expiration du cookie : Dans 5 minutes (300 secondes) 
+            // Accessibilité : Accessible à tout le site
+
+            /* Message de contrôle */
+            document.write("Le cookie monCookie (contenant Editions ENI) a normalement été écrit sur le disque dur");
+
+            
+
+
+        </script>
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>

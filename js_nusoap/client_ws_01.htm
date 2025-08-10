@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Appel du nom du script */
+        alert("WS_01");
+
+        /* Variables globales à toutes les fonctions JavaScript */
+        var httpRequest = null;
+        var valTimeout = null;
+        var url = "http://christian.vigouroux.online.fr/js_nusoap/serveur_ws_01.php";
+        var messageSOAP = null;
+
+        /* Appel de la fonction appelerServeurDistant listant les données de la table MySQL distante 'voitures' */
+        appelerServeurDistant();
+
+        /* Fonction appelerServeurDistant */
+        function appelerServeurDistant()
+        {
+            /* Message SOAP à transmettre au serveur */
+            messageSOAP = '<?xml version="1.0" encoding="ISO-8859-1"?>';
+            messageSOAP += '<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"';
+            messageSOAP += ' xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"';
+            messageSOAP += ' xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://http://www.w3.org/2001/XMLSchema-instance"';
+            messageSOAP += ' xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding" xmlns:si="http://soapinterop.org/xsd">';
+            messageSOAP += '<SOAP-ENV:Body>';
+            messageSOAP += '<ns1:listerVoitures xmlns:ns1="http://christian.vigouroux.online.fr"></ns1:listerVoitures>';
+            messageSOAP += '</SOAP-ENV:Body>';
+            messageSOAP += '</SOAP-ENV:Envelope>';
+            // alert("messageSOAP : " + messageSOAP);
+
+            /*
+            Instanciation d'un objet de type XMLHttpRequest
+            NB : XMLHttpRequest est un objet ActiveX ou JavaScript qui permet d'obtenir
+            des données au format XML, JSON, mais aussi HTML, ou encore texte simple
+            à l'aide de requêtes HTTP. 
+            */
+
+            if (window.XMLHttpRequest)
+            {
+                // Code pour IE7+, Firefox, Chrome, Opera, Safari
+                httpRequest = new XMLHttpRequest();
+            }
+            else
+            {
+                // Code pour IE6, IE5
+                httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            /* Accès au serveur SOAP */
+            httpRequest.open("POST", url, true);
+
+            /*
+            Application de la méthode overrideMimeType pour signaler une réponse
+            du serveur SOAP en format texte ou XML
+            */
+            if (httpRequest.overrideMimeType)
+            {
+                httpRequest.overrideMimeType("text/xml");
+            }
+
+            /*
+            Préparation de l'en-tête du message SOAP (Content-Type positionné à text/xml)
+            NB : Cf. https://en.wikipedia.org/wiki/List_of_HTTP_header_fields pour les autres
+            paramètres possibles
+            */
+            httpRequest.setRequestHeader("Content-Type", "text/xml");
+
+            /*
+            Envoi de la requête SOAP au serveur avec un timeout de 60000 ms (soit 60 secondes)
+            NB : La requête sera en erreur une fois le délai atteint
+            */
+            httpRequest.send(messageSOAP);
+            valTimeout = setTimeout("timeout(httpRequest);", 60000);
+
+             /* Fonction timeout */
+            function timeout(ajaxOBJ)
+            {
+                /* Interruption du traitement */
+                ajaxOBJ.abort();
+            };
+
+            /*
+            Parsage et copie de la réponse dans la division HTML resultat dès que celle-ci
+            a été fournie par le serveur SOAP
+            */
+            httpRequest.onreadystatechange = parserDOM;
+
+        }
+
+        /* Fonction parserDOM */
+        function parserDOM()
+        {
+            try
+            {
+                /* Test si requête terminée et résultat reçu */
+                if (httpRequest.readyState == 4)
+                {
+                    /* Test status OK pour la requête HTTP */
+                    if(httpRequest.status == 200)
+                    {
+                        /* Mise en place du timeout */
+                        clearTimeout(valTimeout);
+                        /* Récupération de la réponse */
+                        var text = httpRequest.responseText;
+                        // alert("text : " + text);
+                        /* Choix du parser pour décoder le flux XML envoyé par le serveur */
+                        if (window.DOMParser)
+                        {
+                            /* Parser pour IE7 et versions postérieures, Firefox, Chrome, Opera, Safari */
+                            parser = new DOMParser();
+                            /* Récupération du flux à parser */
+                            xmlDoc = parser.parseFromString(text, "text/xml");
+                        }
+                        else
+                        {
+                            /* Parser pour IE6 et versions antérieures */
+                            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                            /* La récupération du flux devra être complète avant le début du parsage */
+                            xmlDoc.async = "false";
+                            /* Récupération du flux à parser */
+                            xmlDoc.loadXML(text);
+                        }
+                        /* Parsage */
+                        /*
+                        NB : Le serveur SOAP renvoie les valeurs lues dans la table MySQL
+                        voitures dans un flux XML avec comme balise d'encadrement <item> ... </item>
+                        */
+                        var html = "";
+                        // alert("Nombre de champs intégrés dans le flux XML : "
+                        // + xmlDoc.getElementsByTagName("item").length);
+                        for (i=0; i<xmlDoc.getElementsByTagName("item").length; i++)
+                        {
+                            /*
+                            NB : childNodes[0] désigne le premier engant de l'élément 
+                            nommé item et nodeValue représente la valeur associée
+                            */
+                            if (i % 3 == 0)
+                            {
+                                html += "<br /><br />Code : " + xmlDoc.getElementsByTagName("item")[i].childNodes[0].nodeValue;
+                            }
+                            if (i % 3 == 1)
+                            {
+                                html += "<br /><br />Code : " + xmlDoc.getElementsByTagName("item")[i].childNodes[0].nodeValue;
+                            }
+                            if (i % 3 == 2)
+                            {
+                                html += "<br />Vitesse maximale : " + xmlDoc.getElementsByTagName("item")[i].childNodes[0].nodeValue;
+                            }
+                        
+                        }
+
+                        /* Placement du résultat du parsage dans la division HTML resultat */
+                        document.getElementById("resultat");
+                        divisionResultat.innerHTML = html;
+                    }  
+                }
+            }
+            catch (e)
+            {
+                /* Cas d'erreur */
+                alert("Description de l'erreur : " + e.description)
+            }
+
+        }
+            
+
+
+
+       
+
+        
+
+    </script>
+
+    <!-- Division d'affichage du résultat en HTML -->
+    <div id="resultat"></div>
+    
+</body>
+</html>

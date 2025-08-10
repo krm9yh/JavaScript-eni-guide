@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<!--
+NOM DU SCRIPT : LOCAL_STORAGE_01.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018
+OBJET :     Stockage avec utilisation de localStorage
+-->
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>LOCAL_STORAGE_01</title>
+
+        <script>
+            /* Déclarations de variables communes à toutes les fonctions */
+            var intitule;
+            var nomPersonne;
+            var prenomPersonne;
+            var mailPersonne;
+
+            /* fonction ecrireLocalStorage */
+            function ecrireLocalStorage()
+            {
+                /* Test possibilité d'utiliser localStorage */
+                if (typeof localStorage != "undefined")
+                {
+                    /* Stockage du nom (nomPersonne) dans le stockage localStorage */
+                    nomPersonne = "VIGOUROUX";
+                    localStorage.setItem("nomPersonne", nomPersonne);
+                    /* Stockage du prénom (prenomPersonne) dans le stockage localStorage */
+                    prenomPersonne = "Christian";
+                    localStorage.setItem("prenomPersonne", prenomPersonne);
+                    /* Stockage de l'e-mail (mailPersonne) dans le stockage localStorage */
+                    mailPersonne = "christian.vigouroux@online.fr";
+                    localStorage.setItem("mailPersonne", mailPersonne);
+                    /* Affichage de contrôle */
+                    intitule = "Contenu du localStorage (après écriture)";
+                    document.getElementById("intitule").innerHTML = intitule;
+                    document.getElementById("nomPersonne").innerHTML = nomPersonne;
+                    document.getElementById("prenomPersonne").innerHTML = prenomPersonne;
+                    document.getElementById("mailPersonne").innerHTML = mailPersonne;
+                }
+                else 
+                {
+                    /* Message d'erreur (pas de possibilité de stockage localStorag) */
+                    alert("localStorage n'est pas supporté");
+                }
+            };
+
+            /* Fonction lireLocalStorage */
+            function lireLocalStorage() 
+            {
+                /* Test possibilité d'utiliser localStorage */
+                if (typeof localStorage != "undefined")
+                {
+                    /* Récupération du nom (nomPersonne) depuis le stockage localStorage */
+                    nomPersonne = localStorage.getItem("nomPersonne");
+                    /* Récupération du nom (prenomPersonne) depuis le stockage localStorage */
+                    prenomPersonne = localStorage.getItem("prenomPersonne");
+                    /* Récupération du nom (mailPersonne) depuis le stockage localStorage */
+                    mailPersonne = localStorage.getItem("mailPersonne");
+                    /* Affichage de contrôle */
+                    intitule = "Contenu du localStorage (après relecture)";
+                    document.getElementById("intitule").innerHTML = intitule;
+                    document.getElementById("nomPersonne").innerHTML = nomPersonne;
+                    document.getElementById("prenomPersonne").innerHTML = prenomPersonne;
+                    document.getElementById("mailPersonne").innerHTML = mailPersonne;
+                }
+                else
+                {
+                    /* Message d'erreur (pas de possiblité de stockage localStorage) */
+                    alert("localStorage n'est pas supporté");
+                }
+            };
+
+            /* Fonction supprimerLocalStorage */
+            function supprimerLocalStorage()
+            {
+                /* Test possibilité d'utiliser localStorage */
+                if (typeof localStorage != "undefined")
+                {
+                    /* Suppression des entrées nomPersonne, prenomPersonne et mailPersonne dans le localStorage */
+                    /* NB : sessionStorage.clear(); supprimerait également l'ensemble des entrées du localStorage */
+                    localStorage.removeItem("nomPersonne");
+                    localStorage.removeItem("prenomPersonne");
+                    localStorage.removeItem("mailPersonne");
+                    /* Affichage de contrôle */
+                    intitule = "Contenu du localStorage (après suppression)";
+                    document.getElementById("intitule").innerHTML = intitule;
+                    document.getElementById("nomPersonne").innerHTML = "";
+                    document.getElementById("prenomPersonne").innerHTML = "";
+                    document.getElementById("mailPersonne").innerHTML = "";
+                }
+                else
+                {
+                    /* Message d'erreur (pas de possibilité de stockage localStorage) */
+                    alert("localStorage n'est pas supporté");
+                }
+            };
+
+        </script>
+    </head>
+
+    <body>
+        <h1>Editions ENI - JavaSript - LOCAL_STORAGE_01</h1>
+
+        <script type='text/javascript'>
+            /* Affichage du nom du script */
+            alert("LOCAL_STORAGE_01");
+        </script>
+
+        <!-- Formulaire avec un bouton d'écriture, un bouton de lecture et un bouton de suppression -->
+        <form>
+            <input
+                type="button"
+                id="boutonEcriture"
+                value="Ecriture dans localStorage"
+                onclick="ecrireLocalStorage();"
+            />
+            <br />
+            <input
+                type="button"
+                id="boutonLecture"
+                value="Lecture depuis localStorage"
+                onclick="lireLocalStorage();"
+            />
+            <br />
+            <input
+                type="button"
+                id="boutonSuppression"
+                value="Suppression de l'entrée dans localStorage"
+                onclick="supprimerLocalStorage();"
+            />
+        </form>
+
+        <!-- Affichage du contenu du système de stockage -->
+        <br />
+        <span id="intitule"></span><br />
+        <span id="nomPersonne"></span><br />
+        <span id="prenomPersonne"></span><br />
+        <span id="mailPersonne"></span>
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:' + window.location">Code source</a>
+        </center>
+    </body>
+</html>

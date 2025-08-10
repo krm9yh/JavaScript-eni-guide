@@ -1,0 +1,94 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose/dtd">
+
+<!--
+NOM DU SCRIPT : COOKIES_02.html
+REALISATION INFORMATIQUE : Christian VIGOUROUX
+DATE DE CREATION : 15/10/2018
+DATE DE DERNIERE MODIFICATION : 15/10/2018 
+OBJET : COOKIES_02
+-->
+
+<!-- Début script HTML -->
+<html>
+
+    <!-- Début en-tête script HTML -->
+    <head>
+
+        <!-- Balise meta -->
+        <meta HTTP-equiv="Content-Type"
+        content="text/html"; charset="utf-8" />
+        <!-- Titre du script HTML -->
+        <title>COOKIES_02</title>
+
+    </head>
+
+    <!-- Début section body du script HTML -->
+    <body>
+
+        <!-- Titre du traitement -->
+        <h1>Editions ENI - JavaScript - COOKIES_02</h1>
+
+
+        <script>
+            /* Définition de la fonction JavaScript de lecture d'un cookie */
+            function lectureCookie(nomCookie)
+            {
+                /* Test de présence du cookie */
+                if (document.cookie.length == 0)
+                {
+                    /* Valeur de retour null */
+                    return null;
+                }
+                else
+                {
+                    /* Mise en tableau tabElements des éléments du cookie */
+                    /* NB : On se base sur le séparateur point-virgule */
+                    var tabElements = document.cookie.split(";");
+                    console.log("After splitting by ; ", tabElements)
+                    /* Recherche du = séparant le nom de l'élément de la valeur de l'élément pour le 1er élément (n° 0) */
+                    var positionEgal = tabElements[0].indexOf("=", 0);
+                    console.log("The index of `=` is", positionEgal)
+                    /* Détermination du nom de l'élément */
+                    var nomElement = tabElements[0].substring(0, positionEgal);
+                    console.log("The name:", nomElement)
+                    /* Détermination de la valeur de l'élément */
+                    var valeurElement = tabElements[0].substring(positionEgal+1);
+                    /* Si le nom de l'élément contient bien le nom correct du cookie */
+                    if (nomElement == nomCookie)
+                    {
+                        /* Retour de la valeur de l'élément (avec remise en place des caractères spéciaux) */
+                        /* NB : Cet élément contient normalement Editions ENI */
+                        return unescape(valeurElement);
+                    }
+                    /* Valeur de retour */
+                    return null;
+                }
+            }
+
+            /* Lecture d'un cookie par appel de la fonction lectureCookie */
+            /* NB : Le cookie a pour valeur "Editions ENI" dans notre cas */
+            console.log(lectureCookie("monCookie"))
+            if (lectureCookie("monCookie") == null)
+            {
+                document.write("Le cookie monCookie n'a pas été trouvé");
+            }
+            else
+            {
+                document.write("Le cookie monCookie a pour valeur : " + lectureCookie("monCookie"));
+            }
+
+            
+
+
+        </script>
+
+
+        <!-- Affichage du code source -->
+        <br /><br /><br />
+        <center>
+            <a href="JavaScript:window.location='view-source:'+window.location">Code source</a>
+        </center>
+    </body>
+</html>
