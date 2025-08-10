@@ -13,7 +13,7 @@
         /* Variables globales à toutes les fonctions JavaScript */
         var httpRequest = null;
         var valTimeout = null;
-        var url = "http://christian.vigouroux.online.fr/js_nusoap/serveur_ws_01.php";
+        var url = "http://127.0.0.1/edsa-JS%20tuto/js_nusoap/serveur_ws_01.php";
         var messageSOAP = null;
 
         /* Appel de la fonction appelerServeurDistant listant les données de la table MySQL distante 'voitures' */
@@ -26,10 +26,10 @@
             messageSOAP = '<?xml version="1.0" encoding="ISO-8859-1"?>';
             messageSOAP += '<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"';
             messageSOAP += ' xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"';
-            messageSOAP += ' xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://http://www.w3.org/2001/XMLSchema-instance"';
+            messageSOAP += ' xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://http://www.w3.org/2001/XMLSchema"';
             messageSOAP += ' xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding" xmlns:si="http://soapinterop.org/xsd">';
             messageSOAP += '<SOAP-ENV:Body>';
-            messageSOAP += '<ns1:listerVoitures xmlns:ns1="http://christian.vigouroux.online.fr"></ns1:listerVoitures>';
+            messageSOAP += '<ns1:listerVoitures xmlns:ns1="http://127.0.0.1/edsa-JS%20tuto/js_nusoap/serveur_ws_01.php"></ns1:listerVoitures>';
             messageSOAP += '</SOAP-ENV:Body>';
             messageSOAP += '</SOAP-ENV:Envelope>';
             // alert("messageSOAP : " + messageSOAP);
@@ -101,6 +101,8 @@
                 /* Test si requête terminée et résultat reçu */
                 if (httpRequest.readyState == 4)
                 {
+                    console.log("HTTP status:", httpRequest.status);
+                    console.log("Response text:", httpRequest.responseText);
                     /* Test status OK pour la requête HTTP */
                     if(httpRequest.status == 200)
                     {
@@ -156,7 +158,7 @@
                         }
 
                         /* Placement du résultat du parsage dans la division HTML resultat */
-                        document.getElementById("resultat");
+                        var divisionResultat = document.getElementById("resultat");
                         divisionResultat.innerHTML = html;
                     }  
                 }
