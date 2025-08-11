@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>;
+    <SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/";
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/";
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://http://www.w3.org/2001/XMLSchema";
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding" xmlns:si="http://soapinterop.org/xsd">;
+        <SOAP-ENV:Body>;
+            <ns1:listerVoitures xmlns:ns1="http://127.0.0.1/edsa-JS%20tuto/js_nusoap/serveur_ws_01.php"></ns1:listerVoitures>;
+        </SOAP-ENV:Body>;
+    </SOAP-ENV:Envelope>;

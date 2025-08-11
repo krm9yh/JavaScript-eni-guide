@@ -6,23 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Cours de JavaScript - WS_01</h1>
+    <h1>Cours de JavaScript - WS_02</h1>
 
     <script>
         /* Appel du nom du script */
-        // alert("WS_01");
+        // alert("WS_02");
 
         /* Variables globales à toutes les fonctions JavaScript */
         var httpRequest = null;
         var valTimeout = null;
-        var url = "http://127.0.0.1/edsa-JS%20tuto/js_nusoap/serveur_ws_01.php";
+        var url = "http://127.0.0.1/edsa-JS%20tuto/js_nusoap_02/serveur_ws_02.php";
         var messageSOAP = null;
 
         /* Appel de la fonction appelerServeurDistant listant les données de la table MySQL distante 'voitures' */
         appelerServeurDistant();
 
         /* Fonction appelerServeurDistant */
-        function appelerServeurDistant()
+        function appelerServeurDistant(code_voiture)
         {
             /* Message SOAP à transmettre au serveur */
             messageSOAP = '<?xml version="1.0" encoding="ISO-8859-1"?>';
@@ -31,10 +31,13 @@
             messageSOAP += ' xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://http://www.w3.org/2001/XMLSchema"';
             messageSOAP += ' xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding" xmlns:si="http://soapinterop.org/xsd">';
             messageSOAP += '<SOAP-ENV:Body>';
-            messageSOAP += '<ns1:listerVoitures xmlns:ns1="http://127.0.0.1/edsa-JS%20tuto/js_nusoap/serveur_ws_01.php"></ns1:listerVoitures>';
+            messageSOAP += '<ns1:rechercherVoiture xmlns:ns1="http://127.0.0.1/edsa-JS%20tuto/js_nusoap_02/serveur_ws_02.php">';
+            messageSOAP += '<type xsi:type="xsd:string">' + code_voiture + '</type>';
+            messageSOAP += '</ns1:rechercherVoiture>;' 
             messageSOAP += '</SOAP-ENV:Body>';
             messageSOAP += '</SOAP-ENV:Envelope>';
             // alert("messageSOAP : " + messageSOAP);
+            // console.log(messageSOAP)
 
             /*
             Instanciation d'un objet de type XMLHttpRequest
@@ -174,7 +177,27 @@
 
         }
             
-
+        function controlerChoixListe(liste, messageAlerte)
+        {
+            if (liste.value == "CODE")
+            {
+                /* Affichage d'un message d'alerte */
+                alert(messageAlerte);
+                liste.focus();
+                /* Valeur de retour */
+                return false;
+            }
+            else
+            {
+                /* Affichage de contrôle */
+                // alert("Le code voiture sélectionné est " + document.getElementById('liste').value);
+                // alert("Le code voiture sélectionné est " + liste.value);
+                /* Appel du serveur distant */
+                appelerServeurDistant(liste.value);
+                /* Valeur de retour */
+                return true;
+            }
+        }
 
 
        
@@ -182,6 +205,19 @@
         
 
     </script>
+
+    <!-- Formulaire de saisie du code de la voiture à interroger -->
+    <form name="formulaire">
+        <!-- Liste déroulante des choix -->
+        Code de la voiture :
+        <select id="liste"
+        onchange="controlerChoixListe(document.getElementById('liste'), 'Veuillez choisir un code')">
+            <option value="CODE" selected>Code voiture</option>
+            <option value="V001">V001</option>
+            <option value="V002">V002</option>
+            <option value="V003">V003</option>
+        </select>
+    </form>
 
     <!-- Division d'affichage du résultat en HTML -->
     <div id="resultat"></div>
